@@ -1,0 +1,269 @@
+@import url(http://fonts.googleapis.com/css?family=Architects+Daughter|Averia+Gruesa+Libre);
+body {
+	font-family: "Architects Daughter", sans-serif;
+	font-size: 16px;
+	padding: 1rem;
+}
+h1, h2, h3, h4, h5, h6, side-nav, input, button, select {
+	font-family: "Architects Daughter", sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	letter-spacing: 1px;
+}
+h2 {
+	margin-top: 2rem;
+}
+input, button {
+	font-size: 1.2rem;
+}
+
+/* Navigation */
+.close {
+	background-color: white;
+	color: #008CBA;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.left { text-align: left;}
+.right { text-align: right;}
+.center { text-align: center;}
+
+
+/* Tables */
+table, thead, tbody{
+	width: 100%;
+}
+
+
+/* ------------------- WIDGETS ----------------------------- */
+.buttons {
+	text-align: center;
+}
+.wf-button {
+	background-color: white;
+	border: solid #555 2px;
+	border-radius: 4px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0.5rem 0 0 0;
+	padding: 5px;
+	position: relative;
+	box-shadow: 2px 1px 5px #777
+}
+.wf-button.secondary, .wf-button.cancel {
+	box-shadow: none;
+}
+.wf-button.disabled {
+	background-color: #EDEDED;
+}
+.buttons.compact .wf-button {
+	border-width: 1px;
+	font-size: 0.71rem;
+	margin: 0.25rem 0 0 0;
+	padding: 3px;
+}
+UL.radio-list {
+	list-style-type: none;
+	margin-bottom: 1.5rem;
+	padding-left: 0;
+}
+
+
+/* ------------------- TEXT STYLES --------------------------- */
+A {
+	color: mediumblue;
+}
+PRE {
+	font-family: 'Averia Gruesa Libre', monotype;
+}
+.compact {
+	font-size: 0.88rem;
+}
+.currentStatus {
+	border: 1px solid darkgrey;
+	border-bottom: 0.25rem solid darkgrey;
+	border-right: 0.25rem solid darkgrey;
+	border-radius: 16px;
+	display: inline-block;
+	color: #333;
+	padding: 0.5rem;
+}
+.fieldHelp {
+	display: inline-block;
+	color: darkslategrey;
+	font-size: 0.75rem;
+	margin-left: 0.5rem;
+}
+.instructions {
+	border-left: 5px solid lightsteelblue;
+	padding-left: 0.5rem;
+}
+.note {
+	font-family: 'Averia Gruesa Libre', monotype;
+	background-color: dimgrey;
+	border-radius: 3px;
+	color: white;
+	padding: 5px;
+}
+.note A{
+	color: #EEE;
+}
+
+
+/* ------------------ PANELS --------------------------------- */
+.panel {
+	background-color: seashell;
+	border: 1px solid grey;
+	border-radius: 5px;
+	display: block;
+	padding: 0;
+}
+
+.panel .panel-heading {
+	border-bottom: 1px solid grey;
+	padding: 0.5rem;
+	margin: 0 0 1rem 0;
+}
+.panel .panel-heading H1,
+.panel .panel-heading H2,
+.panel .panel-heading H3,
+.panel .panel-heading H4,
+.panel .panel-heading H5,
+.panel .panel-heading H6 {
+	margin: 0;
+}
+
+.panel .panel-body {
+	margin: 0;
+	padding: 1rem;
+}
+.panel .panel-body P:first-child {
+	margin-top: 0;
+}
+.panel .panel-footer {
+	border-top: 1px solid grey;
+	color: dimgrey;
+	font-size: 0.81rem;
+	margin: 1rem 0 0 0;
+	padding: 0.5rem;
+}
+.panel .panel-footer P {
+	margin: 0;
+}
+
+
+/* ------------------ USER MESSAGES -------------------------- */
+.message {
+
+}
+.message.error {
+	color: tomato;
+}
+.message.info {
+	color: darkslateblue;
+}
+.message.loading {
+	text-align: center;
+}
+.message.no-data {
+	color: lightslategrey;
+}
+.message.success {
+	color: darkgreen;
+}
+.message.warning {
+	color: darkgoldenrod;
+}
+
+/* ------------------ EXPAND / COLLAPSE ---------------------- */
+DIV.collapse-toggle {
+	/*background-color: #DDD;*/
+	background-image: url(open.png);
+	background-repeat: no-repeat;
+	background-size: 21px;
+	/*border-radius: 21px;*/
+	cursor: pointer;
+	height: 21px;
+	width: 21px;
+}
+DIV.collapse-toggle:after {
+	color: darkgrey;
+	content: "Open";
+	font-size: 0.86rem;
+	margin-left: 25px;
+}
+
+DIV.collapse-toggle.collapsed {
+	background-image: url(closed.png);
+}
+DIV.collapse-toggle.collapsed:after {
+	content: "Closed";
+}
+.hide {
+	display: none;
+	visibility: hidden;
+}
+
+
+/* ------------------ LOADING INDICATOR ----------------------*/
+/* From http://tobiasahlin.com/spinkit/. See also the message.loading class. */
+
+.spinner {
+    display: inline-block;
+    font-size: 10px;
+    height: 30px;
+    margin: 0 1rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.spinner > div {
+  background-color: cornflowerblue;
+  display: inline-block;
+  height: 100%;
+  margin: 2px;
+  width: 6px;
+  
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}

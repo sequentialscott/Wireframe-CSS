@@ -1,0 +1,43 @@
+.example {
+	background: white;
+	border: 1px dotted grey;
+	border-radius: 3px;
+	margin-bottom: 1.5rem;
+	padding: 1rem;    
+}
+.code {
+	
+}
+.options {
+	margin-bottom: 1.5rem;
+}
+.options LABEL {
+	font-size: 1rem;
+	font-weight: normal;    
+}
+UL {
+	padding-left: 1rem;
+}
+LI {
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+}
+.panel {
+	margin-bottom: 3rem !important;    
+}
+FIELDSET {
+	display: block;
+	margin-bottom: 1rem;
+	margin-top: -9px;
+}
+UL.toc {
+	columns: auto 3;
+	-webkit-columns: auto 3;
+	-moz-columns: auto 3;
+	list-style-type: none;
+	margin: 1rem 0;
+	padding-left: 0;
+}
+UL.toc LI {
+	margin: 0.2rem 0;
+}
