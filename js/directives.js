@@ -25,7 +25,14 @@ angular.module('wfDirectives').directive('wfMessage', function () {
         transclude: true,
         template: 
 			'<p class="message {{ msgType }}" data-ng-show="visible.show">' + 
-				'<span class="icon iconX secondary compact" data-ng-if="isDismissable" data-ng-click="dismiss()">X</span>' + 
+				'<span class="closeIcon iconX secondary compact" data-ng-if="isDismissable" data-ng-click="dismiss()"></span>' + 
+				'<span class="icon" data-ng-class="{ ' +
+					'ok: msgType === \'success\',' + 
+					'error: msgType===\'error\',' +
+					'warning: msgType === \'warning\',' +
+					'ellipsis: msgType === \'no-data\',' +
+					'info: msgType === \'info\'' +
+				'}"></span>' +
 				'<span ng-transclude></span>' + 
 			'</p>',
         link: function (scope, element, attrs) {

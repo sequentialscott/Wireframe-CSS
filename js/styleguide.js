@@ -2,7 +2,9 @@
 var styles = [
     { title: "Buttons", id: "buttons" },
     { title: "Expand & Collapse", id: "collapse" },
+	{ title: "Forms", id: "formLayout" },
     { title: "Loading Indicator", id: "loading" },
+	{ title: "Tables", id: "tables" }, 
     { title: "Text Styles", id: "textStyles" },
 	{ title: "User Messages", id: "userMessages" }
 ];
@@ -17,6 +19,7 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
     /* Initialize default page settings */
     $scope.buttonAlign = "center";
     $scope.collapseDefault = "open";
+	$scope.tablesCompact = false;
     $scope.textStyle = "instructions";
 	$scope.textStyleCompact = false;
     $scope.userMessageCallback = false;

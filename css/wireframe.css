@@ -156,9 +156,88 @@ PRE {
 }
 
 
+/* ------------------ ICONS ---------------------------------- */
+SPAN.icon {
+	background-image: url("../images/wf-sprite.png");
+	background-position: 40px 0;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 40px;
+	margin: 0.5rem;
+	width: 40px;
+}
+SPAN.icon.compact {
+	background-size: 440px 20px;
+	height: 20px;
+	width: 20px;
+}
+SPAN.icon.add {background-position: 0 0;}
+SPAN.icon.arrowdown { background-position: -40px 0;}
+SPAN.icon.arrowright { background-position: -80px 0;}
+SPAN.icon.arrow { background-position: -120px 0;}
+SPAN.icon.attachment { background-position: -160px 0;}
+SPAN.icon.closed { background-position: -200px 0;}
+SPAN.icon.document { background-position: -240px 0;}
+SPAN.icon.doubledown { background-position: -280px 0;}
+SPAN.icon.doubleright { background-position: -320px 0;}
+SPAN.icon.download { background-position: -360px 0;}
+SPAN.icon.edit { background-position: -400px 0;}
+SPAN.icon.ellipsis { background-position: -440px 0;}
+SPAN.icon.error { background-position: -480px 0;}
+SPAN.icon.info { background-position: -520px 0;}
+SPAN.icon.minus { background-position: -560px 0;}
+SPAN.icon.ok { background-position: -600px 0;}
+SPAN.icon.open { background-position: -640px 0;}
+SPAN.icon.options { background-position: -680px 0;}
+SPAN.icon.plus { background-position: -720px 0;}
+SPAN.icon.reload { background-position: -760px 0;}
+SPAN.icon.upload { background-position: -800px 0;}
+SPAN.icon.warning { background-position: -840px 0;}
+
+SPAN.icon.arrowdown.compact { background-position: -20px 0}
+SPAN.icon.arrow.right.compact { background-position: -40px 0}
+SPAN.icon.arrow.compact { background-position: -60px 0;}
+SPAN.icon.attachment.compact { background-position: -80px 0;}
+SPAN.icon.closed.compact { background-position: -100px 0;}
+SPAN.icon.document.compact { background-position: -120px 0;}
+SPAN.icon.doubledown.compact { background-position: -140px 0;}
+SPAN.icon.doubleright.compact { background-position: -160px 0;}
+SPAN.icon.download.compact { background-position: -180px 0;}
+SPAN.icon.edit.compact { background-position: -200px 0;}
+SPAN.icon.ellipsis.compact { background-position: -220px 0;}
+SPAN.icon.error.compact { background-position: -240px 0;}
+SPAN.icon.info.compact { background-position: -260px 0;}
+SPAN.icon.minus.compact { background-position: -280px 0;}
+SPAN.icon.ok.compact { background-position: -300px 0;}
+SPAN.icon.open.compact { background-position: -320px 0;}
+SPAN.icon.options.compact { background-position: -340px 0;}
+SPAN.icon.plus.compact { background-position: -360px 0;}
+SPAN.icon.reload.compact { background-position: -380px 0;}
+SPAN.icon.upload.compact { background-position: -400px 0;}
+SPAN.icon.warning.compact { background-position: -420px 0;}
+
+
 /* ------------------ USER MESSAGES -------------------------- */
 .message {
-
+	min-height: 40px;
+	position: relative;
+}
+.message SPAN.closeIcon {
+	background-image: url("../images/wf-sprite.png");
+	background-position: -240px 0;
+	background-repeat: no-repeat;
+	background-size: 440px 20px;
+	display: block;
+	height: 20px;
+	opacity: 0.25;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+}
+.message SPAN.closeIcon:hover {
+	cursor: pointer;
+	opacity: 1;
 }
 .message.error {
 	color: tomato;
@@ -167,7 +246,12 @@ PRE {
 	color: darkslateblue;
 }
 .message.loading {
+	padding-left: 0;
 	text-align: center;
+}
+.message.loading SPAN.icon {
+	display: none;
+	visibility: hidden;
 }
 .message.no-data {
 	color: lightslategrey;
@@ -178,6 +262,7 @@ PRE {
 .message.warning {
 	color: darkgoldenrod;
 }
+
 
 /* ------------------ EXPAND / COLLAPSE ---------------------- */
 DIV.collapse-toggle {
