@@ -6,7 +6,7 @@ a set of Angular JavaScript directives if your prototype uses Angular.
 
 ##Installation
 Download and unzip the repository.  Link your web page to wireframe.css.  Also, make sure that the icon file (wf-sprite.png) is in the same directory 
-as the CSS.  (Or update the CSS to point to it.)  To use the Angular directives, make sure your HTML includes the wf-directives.js file and your 
+as the CSS.  (Or update the CSS to point to it.)  To use the Angular directives, make sure your HTML includes the wf-directives.js after the angular.js file and your 
 Angular module injects it.  For example:
 
 ```
