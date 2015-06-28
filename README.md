@@ -17,5 +17,14 @@ var app = angular.module('myApp', ['wfDirectives']);
 The `styleguide.html` file is a style guide that both uses and documents wireframe.css. It is a simple Angular application, 
 and you can choose options for most of the styles and see code that you can copy and paste.
 
-For the page to work properly, you'll need to access it through a web server.  Because each topic is a separate HTML file that 
-Angular includes, most browsers' cross-origin policy won't allow the them to pull in the files directly from the file system.
+
+##Updating the Style Guide
+The HTML for each topic appears below the main part of the page in a series of `<script type="ng/template">` tags.  (These load 
+the HTML into the templateCache, which allows the page to work even if not served by a web server.)  To add a new topic:
+
+1. Create a new `<script type="ng/template" id="topicTitle.html">` tag.
+2. Copy the topic template from the comments at the end of the file and place it inside the new script tag.
+3. Write the necessary HTML for the topic.
+4. In the `styleguide.js` file, add an object to the styles array similar to this: `{ title: "Display Name", id: "topicTitle" }`. Be sure the id in this object matches the ID of the script tag.
+
+The new topic should now be visible in the page and in the contents at the top of the page.

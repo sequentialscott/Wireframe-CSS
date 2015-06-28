@@ -27,11 +27,667 @@
             <div class="panel-heading">
                 <h2>{{ style.title }}</h2>
             </div>
-            <div class="panel-body" data-ng-include="'styles/' + style.id + '.html'">
+            <div class="panel-body" data-ng-include="style.id + '.html'">
             
             </div>
         </div>
+		
+<!-- 
+Below are the individual topics that the ng-include above pulls in.
+-->
+		
+<!-- BUTTONS ------------------------------------------------>		
+<script type="text/ng-template" id="buttons.html">
+<div class="topic">
+    <div class="section group">
+        <div class="col span_8_of_12">
+            <div class="example">
+                <div class="buttons" data-ng-class="{compact: buttons.compact, center: buttons.alignment === 'center', left: buttons.alignment=='left', right: buttons.alignment =='right' }">
+					<input type="button" class="wf-button" value="Primary Button" />
+					<button class="wf-button secondary">Secondary Button</button>
+					<button class="wf-button secondary disabled" disabled>Disabled Button</button>
+					<input type="button" class="wf-button cancel" value="Cancel" />
+                </div>
+            </div>
+			
+        <div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;buttons<span data-ng-show="buttons.compact"> compact</span><span data-ng-show="buttons.alignment === 'left'"> left</span><span data-ng-show="buttons.alignment === 'right'"> right</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;button&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;wf-button&quot;</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;Primary Button&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;wf-button secondary&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Secondary Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;wf-button secondary disabled&quot;</span> <span style="color: #FF0000">disabled</span><span style="color: #000080; font-weight: bold">&gt;</span>Disabled Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;button&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;wf-button cancel&quot;</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;Cancel&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre></div>
+        </div>			
+        </div>
+
+        <div class="options col span_4_of_12">
+            <fieldset>
+                <legend>Options</legend>
+				<ul class="radio-list">
+					<li><label><input type="radio" name="buttonAlign" value="center" data-ng-model="buttons.alignment" />Centered</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="left" data-ng-model="buttons.alignment" />Left</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="right" data-ng-model="buttons.alignment" />Right</label></li>
+				</ul>
+                <input type="checkbox" id="buttonsCompact" data-ng-model="buttons.compact" />
+                <label for="buttonsCompact">Compact</label>
+			</fieldset>
+			
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Cancel buttons go on the right, Primary buttons on the left, and any Secondary buttons between them.</li>
+					<li>Use the class "button" with any of these elements: A, BUTTON, INPUT.</li>
+				</ul>
+			</div>
+        </div>
+    </div>
+</div>
+</script>
+
+
+<!-- EXPAND AND COLLAPSE ------------------------------------------------------->
+<script type="text/ng-template" id="collapse.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+				<div wf-collapse heading-level="collapse.headingLevel" heading-text="Click This Heading" hide-indicator="collapse.hideIndicator">
+					<div id="collapseExample" style="width: 70%; height: 5rem; background-color: burlywood; margin: 1rem;"></div>
+				</div>
+			</div>
+				
+				<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-collapse</span><span data-ng-if="collapse.headingLevel"> <span style="color: #FF0000">heading-level=</span><span style="color: #0000FF">&quot;{{ collapse.headingLevel }}&quot;</span> <span style="color: #FF0000">heading-text=</span><span style="color: #0000FF">&quot;Click This Heading&quot;</span></span><span data-ng-show="collapse.hideIndicator"> <span style="color: #FF0000">hide-indicator=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span style="color:#FF0000" data-ng-show="collapse.defaultCollapse==='closed'"> closed</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">style=</span><span style="color: #0000FF">&quot;width: 70%; height: 5rem; background-color: burlywood; margin: 1rem;&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre></div>
+				</div>
+		</div>
+	
+	    <div class="options col span_4_of_12">
+            <fieldset>
+                <legend>Options</legend>
+				<ul class="radio-list">
+					<li>
+						<label>
+							<input type="radio" value="open" data-ng-model="collapse.defaultCollapse" /> 
+							Default to Open
+					</label>
+					</li>
+					<li>
+						<label>
+							<input type="radio" value="closed" data-ng-model="collapse.defaultCollapse" />
+							Default to Closed
+						</label>
+					</li>
+				</ul>
+				<ul class="radio-list">
+					<li>
+						<label>
+							<input type="checkbox" data-ng-model="collapse.hideIndicator" /> Hide Arrow Indicator
+						</label>
+					</li>
+				</ul>
+				<ul class="radio-list">
+					<li>
+						<label>
+							Heading Level 
+							<select data-ng-model="collapse.headingLevel">
+								<option value="1">H1</option>
+								<option value="2">H2</option>
+								<option value="3">H3</option>
+								<option value="4">H4</option>
+								<option value="5">H5</option>
+								<option value="6">H6</option>
+								<option value="div">DIV</option>
+								<option value="">No Heading</option>
+							</select>
+						</label>
+					</li>
+				</ul>
+            </fieldset>
+			
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Icon and label provided via CSS.</li>
+					<li>To have the content collapsed by default, add the attribute "closed".</li>
+				</ul>
+			</div>
+	    </div>
+	</div>
+</div>
+</script>
+
+<!-- FORMS --------------------------------------------------------------------->
+<script type="text/ng-template" id="formLayout.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+				<fieldset>
+					<legend>Form Title</legend>
+					<div class="form section group">
+						<div  class="col span_3_of_12"><label for="formDropdown" class="required">Dropdown List</label></div>
+						<div class="col span_9_of_12">
+							<select id="formDropdown">
+								<option value="palindrome">Palindrome</option>
+								<option value="anagram">Anagram</option>
+								<option value="ambigram">Ambigram</option>
+							</select>
+						</div>
+					</div>
+					<div class="form section group">
+						<div class="col span_3_of_12"><label>Checkbox</label></div>
+						<div class="col span_9_of_12">
+							<label><input type="checkbox" id="formCheckbox" /> This checkbox is self-referential</label>
+						</div>
+					</div>
+					<div class="form section group">
+						<div class="col span_3_of_12"><label>Radio Buttons</label></div>
+						<div class="col span_9_of_12">
+							<ul class="radio-list">
+								<li>
+									<label>
+										<input type="radio" name="formRadio"> Mutually
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="formRadio"> Exclusive
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="form section group">
+						<div class="col span_3_of_12"><label for="formTextbox" class="required">Text Box</label></div>
+						<div class="col span_9_of_12">
+							<input type="text" id="formTextbox" placeholder="Nonrandom letters" />
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;fieldset&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;legend&gt;</span>Form Title<span style="color: #000080; font-weight: bold">&lt;/legend&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+         <span style="color: #000080; font-weight: bold">&lt;div</span>  <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Dropdown List<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;select</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;palindrome&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Palindrome<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;anagram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Anagram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;ambigram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Ambigram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;/select&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label&gt;</span>Checkbox<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;label&gt;&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;checkbox&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formCheckbox&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span> This checkbox is self-referential<span style="color: #000080; font-weight: bold">&lt;/label&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label&gt;</span>Radio Buttons<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;ul</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;radio-list&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;li&gt;</span>
+                    <span style="color: #000080; font-weight: bold">&lt;label&gt;</span>
+                        <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;radio&quot;</span> <span style="color: #FF0000">name=</span><span style="color: #0000FF">&quot;formRadio&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span> Mutually
+                    <span style="color: #000080; font-weight: bold">&lt;/label&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;li&gt;</span>
+                    <span style="color: #000080; font-weight: bold">&lt;label&gt;</span>
+                        <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;radio&quot;</span> <span style="color: #FF0000">name=</span><span style="color: #0000FF">&quot;formRadio&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span> Exclusive
+                    <span style="color: #000080; font-weight: bold">&lt;/label&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;/ul&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Text Box<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;text&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span> <span style="color: #FF0000">placeholder=</span><span style="color: #0000FF">&quot;Nonrandom letters&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/fieldset&gt;</span>
+</pre></div>
+			</div>
+		</div>
+	
+	    <div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					N/A
+					<!--ul class="radio-list">
+						<li>
+							<label>
+								<input type="checkbox" data-ng-model="tablesCompact" /> Compact
+							</label>
+						</li>
+					</ul-->
+				</fieldset>
+			</div>
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Form laid out with the <a href="http://www.responsivegridsystem.com/calculator/">responsive grid css</a>.</li>
+					<li>Put the <em>required</em> class on a label to mark a field as required.</li>
+				</ul>
+			</div>
+	    </div>
+	</div>
+</div>
+</script>
+
+
+
+<!-- LOADING INDICATOR --------------------------------------------------------->
+<script type="text/ng-template" id="loading.html">
+<div class="topic">
+    <div class="section group">
+        <div class="col span_8_of_12">
+            <div class="example">
+                <div class="message loading"><wf-loading></wf-loading> Please wait while we load your information.</div>
+            </div>
+			
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;message loading&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;wf-loading</span><span style="color: #000080; font-weight: bold">&gt;&lt;/wf-loading&gt;</span> Please wait while we load your information.
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre>
+                </div>
+			</div>			
+        </div>
+
+        <div class="options col span_4_of_12">
+            <fieldset>
+				<legend>Options</legend>
+                N/A
+            </fieldset>
+			
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Show and hide the DIV.message.loading as needed.</li>
+					<li>This uses only HTML and CSS, no JavaScript.</li>
+					<li>The animated effect does not work on IE9.</li>
+				</ul>
+			</div>
+        </div>
+    </div>
+</div>
+</script>
+
+<!-- PANELS -------------------------------------------------------------------->
+<script type="text/ng-template" id="panels.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+                <div class="panel">
+					<div class="panel-heading" data-ng-class="panels.headingColor" data-ng-show="panels.showHeading">
+						<h4>Panel Heading</h4>
+					</div>
+					<div class="panel-body" data-ng-class="panels.bodyColor">
+						<p>The panels follow the same format as Bootstrap, in case that helps you.</p>
+					</div>
+					<div class="panel-footer" data-ng-class="panels.footerColor" data-ng-show="panels.showFooter">
+						You could stick a status bar down here. Or totals.
+					</div>
+				</div>
+			</div>
+			
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span><span data-ng-show="panels.showHeading">
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-heading&quot;</span><span data-ng-show="panels.headerColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.headingColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;h4&gt;</span>Panel Heading<span style="color: #000080; font-weight: bold">&lt;/h4&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span></span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body&quot;</span><span data-ng-show="panels.bodyColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.bodyColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;p&gt;</span>The panels follow the same format as Bootstrap, in case that helps you.<span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span><span data-ng-show="panels.showFooter">
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-footer&quot;</span><span data-ng-show="panels.footerColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.footerColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+        You could stick a status bar down here. Or totals.
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span></span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre></div>
+			</div>
+		</div>
+	
+	    <div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					<ul class="radio-list">
+						<li>
+							<label>
+								<input type="checkbox" data-ng-model="panels.showHeading" /> 
+								Show Heading
+						</label>
+						</li>
+						<li>
+							<label>
+								<input type="checkbox" data-ng-model="panels.showFooter" />
+								Show Footer
+							</label>
+						</li>
+					</ul>
+					
+					<ul class="radio-list">
+						<li class="section group">
+							<label class="col span_5_of_12">Heading Color </label>
+							<div class="col span_7_of_12">
+								<select data-ng-model="panels.headingColor" data-ng-options="color for color in colors">
+									<option value="">Heading Colors</option>
+								</select>
+							</div>
+						</li>
+						<li class="section group">
+							<label class="col span_5_of_12">Body Color</label> 
+							<div class="col span_7_of_12">
+								<select data-ng-model="panels.bodyColor" data-ng-options="color for color in colors">
+									<option value="">Body Colors</option>
+								</select>
+							</div>
+						</li>
+						<li class="section group">
+							<label class="col span_5_of_12" for="panelsFooterColors">Footer Colors</label>
+							<div class="col span_7_of_12">
+								<select id="panelsFooterColors" data-ng-model="panels.footerColor" data-ng-options="color for color in colors">
+									<option value="">Footer Colors</option>
+								</select>
+							</div>
+					<ul>
+				</fieldset>
+			</div>
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Use panels whenever you need a box.</li>
+					<li>The HTML for panels is the same as Bootstrap.</li>
+					<li>The color options are CSS classes based on a subset of CSS color keywords. You can use them on anything with a background color.</li>
+				</ul>
+			</div>
+	    </div>
+	</div>
+</div>
+</script>
+
+<!-- TABLES -------------------------------------------------------------------->
+<script type="text/ng-template" id="tables.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+                <table data-ng-class="{ compact: tables.compact }">
+					<thead>
+						<tr>
+							<th 
+								data-ng-class="{
+									ascending: tables.showSort && tables.sortDirection === 'ascending',
+									descending: tables.showSort && tables.sortDirection === 'descending'
+								}" 
+								data-ng-click="tables.toggleSort()">
+								Doctor
+							</th>
+							<th>Ship</th>
+							<th>Actor</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>McCoy</td>
+							<td>USS Enterprise</td>
+							<td>DeForest Kelly</td>
+						</tr>
+						<tr>
+							<td>Franklin</td>
+							<td>Babylon 5</td>
+							<td>Richard Biggs</td>
+						</tr>
+						<tr>
+							<td>THE Doctor</td>
+							<td>TARDIS</td>
+							<td>William Hartnell</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;table</span><span data-ng-show="tables.compact"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;compact&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;thead&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;tr&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;th</span><span data-ng-show="tables.showSort"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ tables.sortDirection }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>Doctor<span style="color: #000080; font-weight: bold">&lt;/th&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;th&gt;</span>Ship<span style="color: #000080; font-weight: bold">&lt;/th&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;th&gt;</span>Actor<span style="color: #000080; font-weight: bold">&lt;/th&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/tr&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/thead&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;tbody&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;tr&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>McCoy<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>USS Enterprise<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>DeForest Kelly<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/tr&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;tr&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>Franklin<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>Babylon 5<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>Richard Biggs<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/tr&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;tr&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>THE Doctor<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>TARDIS<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;td&gt;</span>William Hartnell<span style="color: #000080; font-weight: bold">&lt;/td&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/tr&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/tbody&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/table&gt;</span>
+</pre></div>
+			</div>
+		</div>
+	
+	    <div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					<ul class="radio-list">
+						<li>
+							<label>
+							<input type="checkbox" data-ng-model="tables.showSort" />
+							Show sorting
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="checkbox" data-ng-model="tables.compact" /> Compact
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Tables aren't for layout. We've had this discussion, right?</li>
+					<li>Click the sorting indicator to switch between ascending and descending.</li>
+					<li>The sorting indicators show a column and direction - use these as hooks when doing actual sorting.</li>
+				</ul>
+			</div>
+	    </div>
+	</div>
+</div>
+</script>
+
+
+<!-- TEXT STYLES --------------------------------------------------------------->
+<script type="text/ng-template" id="textStyles.html">
+<div class="topic">
+    <div class="section group">
+	    <div class="col span_8_of_12">
+            <div class="example">
+			    <p class="{{ textStyles.style }}" data-ng-class="{ compact: textStyles.compact }">
+                    Check out Ginny Redish's book on writing for the web, <a href="http://www.amazon.com/Letting-Words-Second-Edition-Technologies/dp/0123859301">Letting Go of the Words</a>.
+                </p>
+            </div>
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ textStyles.style }}<span data-ng-show="textStyles.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    Check out Ginny Redish&#39;s book on writing for the web, <span style="color: #000080; font-weight: bold">&lt;a</span> <span style="color: #FF0000">href=</span><span style="color: #0000FF">&quot;http://www.amazon.com/Letting-Words-Second-Edition-Technologies/dp/0123859301&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Letting Go of the Words<span style="color: #000080; font-weight: bold">&lt;/a&gt;</span>.
+<span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
+</pre></div>
+			</div>
+	    </div>
+	
+	    <div class="options col span_4_of_12">
+            <fieldset>
+                <legend>Options</legend>
+				<ul class="radio-list">
+					<li><label><input type="radio" name="textStyle" value="instructions" data-ng-model="textStyles.style" />Instructions</label></li>
+					<li><label><input type="radio" name="textStyle" value="note" data-ng-model="textStyles.style" />Note</label></li>
+					<li><label><input type="radio" name="textStyle" value="fieldHelp" data-ng-model="textStyles.style" />Field Help</label></li>
+					<li><label><input type="radio" name="textStyle" value="currentStatus" data-ng-model="textStyles.style" />Current Status</label></li>
+				</ul>
+				<label>
+					<input type="checkbox" data-ng-model="textStyles.compact" /> Compact
+				</label>
+            </fieldset>
+			
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>These are just a few possibilities to get you started.</li>
+					<li>Name them semantically, according to their function.</li>
+					<li>Most of these are for block elements.  Field help is for a span that appears after or below an input.</li>
+				</ul>
+			</div>			
+        </div>
+    </div>
+</div>
+</script>
+
+
+<!-- USER MESSAGES ------------------------------------------------------------->
+<script type="text/ng-template" id="userMessages.html">
+<div class="topic">
+    <div class="section group">
+	    <div class="col span_8_of_12">
+            <div class="example">
+			    <p wf-message 
+					msg-type="userMessage.type" 
+					visible="userMessage.visible" 
+					dismissable="userMessage.dismiss"  
+					data-ng-class="{compact: userMessage.compact}">
+                    This isn't Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually
+					starts subtracting from the sum total of knowledge in the universe.  Oops.
+                </p>
+            </div>
+			
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">wf-message</span> 
+    <span style="color: #FF0000">msg-type=</span><span style="color: #0000FF">&quot;{{userMessage.type}}<span data-ng-show="userMessage.compact"> compact</span>&quot; <span data-ng-show="userMessage.visible">
+    <span style="color: #FF0000">visible=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span data-ng-show="userMessage.dismiss">
+    <span style="color: #FF0000">dismissable=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span data-ng-show="userMessage.callback">
+    <span style="color: #FF0000">on-dismiss=</span><span style="color: #0000FF">&quot;callback()&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+    This isn't Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually starts subtracting from the sum total of knowledge in the universe.  Oops.
+<span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
+</pre></div>
+
+
+			</div>			
+	    </div>
+	
+	    <div class="options col span_4_of_12">
+                <fieldset>
+                    <legend>Options</legend>
+                    <label>
+						Message Type: 
+						<select data-ng-model="userMessage.type">
+							<option value="success">Success</option>
+							<option value="error">Error</option>
+							<option value="warning">Warning</option>
+							<option value="no-data">No Data</option>
+							<option value="info">Info</option>
+							<option value="loading">Loading</option>
+						</select>
+					</label>
+					<ul class="radio-list">
+						<li><label><input type="checkbox" data-ng-model="userMessage.dismiss" />Dismissable</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessage.callback" />Callback (Function to run when dismissed)</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessage.compact" />Compact</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessage.visible" />Visible</label>
+					</ul>
+                </fieldset>
+				
+				<div class="usage">
+					<h4>Usage</h4>
+					<ul>
+						<li>Use the class "message" for notices to the user.</li>
+						<li>Then, use the class for the type of message it is.</li>
+						<li>The "compact" class works with messages.</li>
+						<li>Speak the user's language.  Address him/her directly and use the word "you" if appropriate.</li>
+						<li>Be sure grammar and spelling are correct.</li>
+					</ul>
+				</div>
+            </div>
+    </div>
+</div>
+</script>
 
     </div><!-- End angular app & controller -->
 </body>
 </html>
+
+
+
+
+
+<!-- This is a starter topic to use when adding to the style guide.  Copy this code and place it within a <script type="ng/template" id="topicTitle.html> tag.
+---- Then, add an object to the styles array in styleguide.js of the format: { title: "Display Name", id: "topicTitle" }
+
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+                Put working code here to show the example.
+			</div>
+			
+			<div class="code">
+				Can beautify HTML with http://hilite.me 
+			</div>
+		</div>
+	
+	    <div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					<ul class="radio-list">
+						<li>
+							<label>
+								<input type="radio" value="open" data-ng-model="scopeVariable" /> 
+								Option 1
+						</label>
+						</li>
+						<li>
+							<label>
+								<input type="radio" value="closed" data-ng-model="scopeVariable" />
+								Option 2
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Keep these brief...</li>
+					<li>... but don't leave too much out.</li>
+				</ul>
+			</div>
+	    </div>
+	</div>
+</div>
+
+
+-->
