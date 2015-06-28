@@ -14,5 +14,8 @@ var app = angular.module('myApp', ['wfDirectives']);
 ```
 
 ##Using Wireframe.css
-After unzipping the repository, view the page `styleguide.html` to see a style guide that both uses and documents wireframe.css. 
-It is a simple Angular application, and you can choose options for most of the styles and see code that you can copy and paste.
+The `styleguide.html` file is a style guide that both uses and documents wireframe.css. It is a simple Angular application, 
+and you can choose options for most of the styles and see code that you can copy and paste.
+
+For the page to work properly, you'll need to access it through a web server.  Because each topic is a separate HTML file that 
+Angular includes, most browsers' cross-origin policy won't allow the them to pull in the files directly from the file system.
