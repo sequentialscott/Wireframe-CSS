@@ -1,23 +1,65 @@
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter|Averia+Gruesa+Libre);
+
+/* Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ----------------- WIREFRAME.CSS -------------------- */
+
 body {
 	font-family: "Architects Daughter", sans-serif;
 	font-size: 16px;
 	padding: 1rem;
 }
-h1, h2, h3, h4, h5, h6, side-nav, input, button, select {
-	font-family: "Architects Daughter", sans-serif;
-}
-h1, h2, h3, h4, h5, h6 {
-	letter-spacing: 1px;
-}
-h2 {
-	margin-top: 2rem;
-}
-input, button {
-	font-size: 1.2rem;
-}
 
-/* Navigation */
+/* Navigation 
 .close {
 	background-color: white;
 	color: #008CBA;
@@ -26,20 +68,68 @@ input, button {
 	border-radius: 15px;
 	display: inline-block;
 	cursor: pointer;
-}
-
-.left { text-align: left;}
-.right { text-align: right;}
-.center { text-align: center;}
+}*/
 
 
-/* Tables */
-table, thead, tbody{
+
+/* --------------------- TABLES ---------------------------- */
+TABLE, THEAD, TBODY{
+	border: 0;
+	border-collapse: collapse;
 	width: 100%;
 }
-
+THEAD TR {
+	background-color: dimgrey;
+	color: white;
+	font-weight: bold;
+	text-align: left;
+}
+TH, TD {
+	padding: 0.5rem;
+	position: relative;
+	text-align: left;
+}
+TABLE.compact TH, TD {
+	padding: 0.25rem;
+}
+TBODY TR:nth-child(odd)
+{
+	background-color: whitesmoke;
+}
+TH.ascending:after, TH.descending:after {
+	content: "";
+	border: 8px solid rgba(255, 255, 255, 0);
+	display: inline-block;
+	height: 0;
+	margin-left: 0.25rem;
+	position: absolute;
+	width: 0;
+}
+TH.ascending:after {
+	border-bottom: 8px solid white;
+	top: 8px;
+}
+TH.descending:after {
+	border-top: 8px solid white;
+	top: 16px;
+}
+TABLE.compact TH.ascending:after { top: 0; }
+TABLE.compact TH.descending:after { top: 8px; }
 
 /* ------------------- WIDGETS ----------------------------- */
+BUTTON, INPUT, SELECT {
+	font-family: "Architects Daughter", sans-serif;
+}
+BUTTON, INPUT[type="button"], INPUT.button, A.button {
+	font-size: 1.2rem;
+}
+INPUT, SELECT {
+	font-size: 1rem;
+}
+FIELDSET {
+	border: 2px groove;
+	padding: 1rem;
+}
 .buttons {
 	text-align: center;
 }
@@ -68,17 +158,40 @@ table, thead, tbody{
 }
 UL.radio-list {
 	list-style-type: none;
-	margin-bottom: 1.5rem;
+	margin: 0 0 1.5rem 0;
 	padding-left: 0;
+}
+UL.radio-list LI {
+	margin: 0.125rem 0;
 }
 
 
 /* ------------------- TEXT STYLES --------------------------- */
+H1, H2, H3, H4, H5, H6 {
+	letter-spacing: 1px; 
+	margin: 2rem 0 0.5rem;
+}
+H1 { font-size: 2rem; font-weight: bold;}
+H2 { font-size: 1.75rem; font-weight: bold;}
+H3 { font-size: 1.5rem; font-weight: bold; }
+H4 { font-size: 1rem; font-weight: bold; }
+H5 { font-size: 0.8rem; font-weight: bold; }
+H6 { font-size: 0.75rem; }
+
 A {
 	color: mediumblue;
 }
+EM {
+	font-style: italic;
+}
+LI {
+	margin-bottom: 0.25rem;
+}
 PRE {
 	font-family: 'Averia Gruesa Libre', monotype;
+}
+UL {
+	list-style-type: circle;
 }
 .compact {
 	font-size: 0.88rem;
@@ -89,7 +202,7 @@ PRE {
 	border-right: 0.25rem solid darkgrey;
 	border-radius: 16px;
 	display: inline-block;
-	color: #333;
+	color: dimgrey;
 	padding: 0.5rem;
 }
 .fieldHelp {
@@ -110,23 +223,29 @@ PRE {
 	padding: 5px;
 }
 .note A{
-	color: #EEE;
+	color: azure;
+}
+.required:after {
+	color: tomato;
+	content: ' *';
+	font-size: 1.5rem;
 }
 
 
 /* ------------------ PANELS --------------------------------- */
 .panel {
-	background-color: seashell;
 	border: 1px solid grey;
 	border-radius: 5px;
 	display: block;
+	overflow: hidden;
 	padding: 0;
 }
 
 .panel .panel-heading {
+	background-color: whitesmoke;
 	border-bottom: 1px solid grey;
 	padding: 0.5rem;
-	margin: 0 0 1rem 0;
+	margin: 0;
 }
 .panel .panel-heading H1,
 .panel .panel-heading H2,
@@ -138,6 +257,7 @@ PRE {
 }
 
 .panel .panel-body {
+	background-color: white;
 	margin: 0;
 	padding: 1rem;
 }
@@ -148,7 +268,7 @@ PRE {
 	border-top: 1px solid grey;
 	color: dimgrey;
 	font-size: 0.81rem;
-	margin: 1rem 0 0 0;
+	margin: 0;
 	padding: 0.5rem;
 }
 .panel .panel-footer P {
@@ -195,7 +315,7 @@ SPAN.icon.upload { background-position: -800px 0;}
 SPAN.icon.warning { background-position: -840px 0;}
 
 SPAN.icon.arrowdown.compact { background-position: -20px 0}
-SPAN.icon.arrow.right.compact { background-position: -40px 0}
+SPAN.icon.arrowright.compact { background-position: -40px 0}
 SPAN.icon.arrow.compact { background-position: -60px 0;}
 SPAN.icon.attachment.compact { background-position: -80px 0;}
 SPAN.icon.closed.compact { background-position: -100px 0;}
@@ -219,8 +339,22 @@ SPAN.icon.warning.compact { background-position: -420px 0;}
 
 /* ------------------ USER MESSAGES -------------------------- */
 .message {
+	border: 1px solid grey;
+	border-radius: 1rem;
+	box-shadow: 5px 5px 5px grey;
+	font-size: 1.25rem;
 	min-height: 40px;
+	padding: 2rem 28px 1.5rem 5rem;
 	position: relative;
+}
+.message.compact {
+	font-size: 1rem;
+	padding: 1rem 28px 0.5rem 5rem;
+}
+.message SPAN.icon {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
 }
 .message SPAN.closeIcon {
 	background-image: url("../images/wf-sprite.png");
@@ -231,8 +365,8 @@ SPAN.icon.warning.compact { background-position: -420px 0;}
 	height: 20px;
 	opacity: 0.25;
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: 0.5rem;
+	top: 0.5rem;
 	width: 20px;
 }
 .message SPAN.closeIcon:hover {
@@ -240,12 +374,16 @@ SPAN.icon.warning.compact { background-position: -420px 0;}
 	opacity: 1;
 }
 .message.error {
-	color: tomato;
+	background-color: mistyrose;
+	color: crimson;
 }
 .message.info {
+	background-color: lightcyan;
 	color: darkslateblue;
 }
 .message.loading {
+	border: 0;
+	box-shadow: none;
 	padding-left: 0;
 	text-align: center;
 }
@@ -254,39 +392,41 @@ SPAN.icon.warning.compact { background-position: -420px 0;}
 	visibility: hidden;
 }
 .message.no-data {
+	background-color: gainsboro;
 	color: lightslategrey;
 }
 .message.success {
+	background-color: mintcream;
 	color: darkgreen;
 }
 .message.warning {
-	color: darkgoldenrod;
+	background-color: papayawhip;
+	color: sienna;
 }
 
 
 /* ------------------ EXPAND / COLLAPSE ---------------------- */
-DIV.collapse-toggle {
-	/*background-color: #DDD;*/
-	background-image: url(open.png);
+SPAN.collapse-toggle {
+	/*background-image: url(open.png);
 	background-repeat: no-repeat;
-	background-size: 21px;
-	/*border-radius: 21px;*/
+	background-size: 21px;*/
 	cursor: pointer;
-	height: 21px;
-	width: 21px;
+	display: block;
+	float: left;
+	height: 20px;
+	margin-top: -0.25rem;
+	width: 20px;
 }
-DIV.collapse-toggle:after {
-	color: darkgrey;
-	content: "Open";
-	font-size: 0.86rem;
-	margin-left: 25px;
-}
-
 DIV.collapse-toggle.collapsed {
 	background-image: url(closed.png);
 }
-DIV.collapse-toggle.collapsed:after {
-	content: "Closed";
+DIV.collapse-area {
+	margin-left: 2rem;
+}
+DIV.collapse-area > SPAN > H1, DIV.collapse-area > SPAN > H2, 
+DIV.collapse-area > SPAN > H3, DIV.collapse-area > SPAN > H4,
+DIV.collapse-area > SPAN > H5, DIV.collapse-area > SPAN > H6 {
+	cursor: pointer;
 }
 .hide {
 	display: none;
@@ -352,3 +492,47 @@ DIV.collapse-toggle.collapsed:after {
     -webkit-transform: scaleY(1.0);
   }
 }
+
+.left { text-align: left;}
+.right { text-align: right;}
+.center { text-align: center;}
+
+
+/* ------------------- COLORS --------------------- */
+.aliceblue{ background-color: aliceblue !important; }
+.antiquewhite{ background-color: antiquewhite !important; }
+.azure{ background-color: azure !important; }
+.beige{ background-color: beige !important; }
+.bisque{ background-color: bisque !important; }
+.blanchedalmond{ background-color: bleachedalmond !important; }
+.burlywood{ background-color: burlywood !important; }
+.cornsilk{ background-color: cornsilk !important; }
+.floralwhite{ background-color: floralwhite !important; }
+.gainsboro{ background-color: gainsboro !important; }
+.ghostwhite{ background-color: ghostwhite !important; }
+.honeydew{  background-color: honeydew !important; }
+.ivory{ background-color: ivory !important; }
+.khaki{ background-color: khaki !important; }
+.lavender{ background-color: lavender !important; }
+.lavenderblush{ background-color: lavenderblush !important; }
+.lemonchiffon{ background-color: lemonchiffon !important; }
+.lightcyan{ background-color: lightcyan !important; }
+.lightgray{ background-color: lightgray !important; }
+.lightgrey{ background-color: lightgrey !important; }
+.lightyellow{ background-color: lightyellow !important; }
+.linen{ background-color: linen !important; }
+.mintcream{ background-color: mintcream !important; }
+.mistyrose{ background-color: mistyrose !important; }
+.mocassin{ background-color: mocassin !important; }
+.oldlace{ background-color: oldlace !important; }
+.palegoldenrod{ background-color: palegoldenrod !important; }
+.papayawhip{ background-color: papayawhip !important; }
+.peachpuff{ background-color: peachpuff !important; }
+.powderblue{ background-color: powderblue !important; }
+.rebeccapurple{ background-color: rebeccapurple !important; }
+.seashell{ background-color: seashell !important; }
+.silver{ background-color: silver !important; }
+.thistle{ background-color: thistle !important; }
+.tomato{ background-color: tomato !important; }
+.wheat{ background-color: wheat !important; }
+.whitesmoke{ background-color: whitesmoke !important; }

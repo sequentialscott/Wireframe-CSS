@@ -19,24 +19,39 @@ angular.module('wfDirectives').directive('wfMessage', function () {
         scope: {
 			visible: '=',			// Object from controller with Boolean to control visibility
             onDismiss: '&',         // Function to call on dismissal
-            msgType: '='   			// To monitor the type of message (success, warning, etc.) and update it if it changes.
+            msgType: '=',  			// To monitor the type of message (success, warning, etc.) and update it if it changes.
+			dismissable: '='		// Show or hide the icon to dismiss the message
         },
         replace: true,
         transclude: true,
         template: 
-			'<p class="message {{ msgType }}" data-ng-show="visible.show">' + 
-				'<span class="closeIcon iconX secondary compact" data-ng-if="isDismissable" data-ng-click="dismiss()"></span>' + 
+			'<p class="message {{ msgType }}" data-ng-show="visible">' + 
+				'<span class="closeIcon iconX secondary compact" data-ng-if="dismissable" data-ng-click="dismiss()"></span>' + 
 				'<span class="icon" data-ng-class="{ ' +
 					'ok: msgType === \'success\',' + 
 					'error: msgType===\'error\',' +
 					'warning: msgType === \'warning\',' +
 					'ellipsis: msgType === \'no-data\',' +
-					'info: msgType === \'info\'' +
+					'info: msgType === \'info\',' + 
+					'compact: iconCompact' +
 				'}"></span>' +
 				'<span ng-transclude></span>' + 
 			'</p>',
         link: function (scope, element, attrs) {
-			scope.isDismissable = 'dismissable' in attrs;
+			scope.$watch(function() {return element.attr('class'); }, function(newValue){
+				scope.iconCompact = element.hasClass('compact');
+			});
+			//scope.isCompact = function() {
+			//	return element.hasClass('compact');
+			//};
+			//scope.classList = attrs.class;
+			//scope.$watch('classList', function(){
+			//	scope.iconCompact = scope.isCompact();
+			//});
+			//scope.iconCompact = isCompact();
+			//attrs.$observe('class', function(){
+			//	scope.iconCompact = isCompact();
+			//});
 			
             // Dismissing
 			scope.dismiss = function(){
@@ -57,14 +72,31 @@ angular.module('wfDirectives').directive('wfCollapse', function () {
 		restrict: 'AE',
 		transclude: true,
 		replace: true,
+		scope: { 
+			headingLevel: '=',
+			hideIndicator: '='
+		},
 		template: 
-			'<div>' + 
-				'<div class="collapse-toggle" data-ng-click="toggle()" data-ng-class="{collapsed: !expanded}"></div>' + 
-				'<div data-ng-show="expanded">' + 
-					'<div data-ng-transclude></div>' + 
+			'<div style="position:relative">' +
+				'<span class="collapse-toggle icon open compact" data-ng-click="toggle()" data-ng-show="!hideIndicator && expanded"}"></span>' +
+				'<span class="collapse-toggle icon closed compact" data-ng-click="toggle()" data-ng-show="!hideIndicator && !expanded"></span>' +
+				'<div class="collapse-area">' +
+					'<span data-ng-if="headingText">' +
+						'<h1 data-ng-click="toggle()" data-ng-show="headingLevel===\'1\'">{{ headingText }}</h1>' +
+						'<h2 data-ng-click="toggle()" data-ng-show="headingLevel===\'2\'">{{ headingText }}</h2>' +
+						'<h3 data-ng-click="toggle()" data-ng-show="headingLevel===\'3\'">{{ headingText }}</h3>' +
+						'<h4 data-ng-click="toggle()" data-ng-show="headingLevel===\'4\'">{{ headingText }}</h4>' +
+						'<h5 data-ng-click="toggle()" data-ng-show="headingLevel===\'5\'">{{ headingText }}</h5>' +
+						'<h6 data-ng-click="toggle()" data-ng-show="headingLevel===\'6\'">{{ headingText }}</h6>' +
+						'<div data-ng-click="toggle()" data-ng-show="headingLevel===\'div\'">{{ headingText }}</div>' + 	
+					'</span>' +
+					'<div data-ng-show="expanded">' +
+						'<div data-ng-transclude></div>' +
+					'</div>' +
 				'</div>' +
 			'</div>',
         link: function (scope, element, attrs) {
+			scope.headingText = attrs.headingText;
 			scope.expanded = !('closed' in attrs);
 			scope.toggle = function(){
 				scope.expanded = !scope.expanded;

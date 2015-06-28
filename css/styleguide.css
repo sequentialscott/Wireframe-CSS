@@ -5,8 +5,8 @@
 	margin-bottom: 1.5rem;
 	padding: 1rem;    
 }
-.code {
-	
+.code > div {
+	max-height: 25rem;
 }
 .options {
 	margin-bottom: 1.5rem;
@@ -28,7 +28,7 @@ LI {
 FIELDSET {
 	display: block;
 	margin-bottom: 1rem;
-	margin-top: -9px;
+	margin-top: -7px;
 }
 UL.toc {
 	columns: auto 3;

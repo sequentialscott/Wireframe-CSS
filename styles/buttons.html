@@ -2,7 +2,7 @@
     <div class="section group">
         <div class="col span_8_of_12">
             <div class="example">
-                <div class="buttons" data-ng-class="{compact: buttonsCompact, center: buttonAlign === 'center', left: buttonAlign=='left', right: buttonAlign =='right' }">
+                <div class="buttons" data-ng-class="{compact: buttons.compact, center: buttons.alignment === 'center', left: buttons.alignment=='left', right: buttons.alignment =='right' }">
 					<input type="button" class="wf-button" value="Primary Button" />
 					<button class="wf-button secondary">Secondary Button</button>
 					<button class="wf-button secondary disabled" disabled>Disabled Button</button>
@@ -11,7 +11,7 @@
             </div>
 			
         <div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;buttons<span data-ng-show="buttonsCompact"> compact</span><span data-ng-show="buttonAlign === 'left'"> left</span><span data-ng-show="buttonAlign === 'right'"> right</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;buttons<span data-ng-show="buttons.compact"> compact</span><span data-ng-show="buttons.alignment === 'left'"> left</span><span data-ng-show="buttons.alignment === 'right'"> right</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;button&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;wf-button&quot;</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;Primary Button&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;wf-button secondary&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Secondary Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;wf-button secondary disabled&quot;</span> <span style="color: #FF0000">disabled</span><span style="color: #000080; font-weight: bold">&gt;</span>Disabled Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
@@ -25,11 +25,11 @@
             <fieldset>
                 <legend>Options</legend>
 				<ul class="radio-list">
-					<li><label><input type="radio" name="buttonAlign" value="center" data-ng-model="buttonAlign" />Centered</label></li>
-					<li><label><input type="radio" name="buttonAlign" value="left" data-ng-model="buttonAlign" />Left</label></li>
-					<li><label><input type="radio" name="buttonAlign" value="right" data-ng-model="buttonAlign" />Right</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="center" data-ng-model="buttons.alignment" />Centered</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="left" data-ng-model="buttons.alignment" />Left</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="right" data-ng-model="buttons.alignment" />Right</label></li>
 				</ul>
-                <input type="checkbox" id="buttonsCompact" data-ng-model="buttonsCompact" />
+                <input type="checkbox" id="buttonsCompact" data-ng-model="buttons.compact" />
                 <label for="buttonsCompact">Compact</label>
 			</fieldset>
 			

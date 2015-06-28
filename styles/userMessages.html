@@ -3,49 +3,48 @@
 	    <div class="col span_8_of_12">
             <div class="example">
 			    <p wf-message 
-					msg-type="userMessageType" 
-					visible="userMessageVisible" 
-					data-ng-attr-dismissable="userMessageDismiss || undefined"  
-					data-ng-class="{compact: userMessageCompact}">
-                    This is a user message.  Usually it's in a P tag, but can also be a div or a span.
+					msg-type="userMessage.type" 
+					visible="userMessage.visible" 
+					dismissable="userMessage.dismiss"  
+					data-ng-class="{compact: userMessage.compact}">
+                    This isn't Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually
+					starts subtracting from the sum total of knowledge in the universe.  Oops.
                 </p>
             </div>
 			
 			<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-    <pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">wf-message</span> <span style="color: #FF0000"><span data-ng-show="userMessageCompact" class=</span>class=<span style="color: #0000FF">&quot;compact&quot;</span></span>
-    <span style="color: #FF0000">message-class=</span><span style="color: #0000FF">&quot;{{userMessageType}}&quot;</span>
-    <span data-ng-show="userMessageDismiss"><span style="color: #FF0000">dismissable=</span><span style="color: #0000FF">&quot;false&quot;</span>
-    </span><span data-ng-show="userMessageHighlight"><span style="color: #FF0000">highlight</span>
-    </span><span data-ng-show="userMessageTimeout"><span style="color: #FF0000">time-to-show=</span><span style="color: #0000FF">&quot;5000&quot;</span>
-    </span><span data-ng-show="userMessageCallback"><span style="color: #FF0000">on-dismiss=</span><span style="color: #0000FF">&quot;scopeFunction()&quot;</span>
-</span><span style="color: #000080; font-weight: bold">&gt;</span>
-    <span style="color: #000000;">This is a user message.  Usually it&#39;s in a P tag, but can also be a div or a span.</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">wf-message</span> 
+    <span style="color: #FF0000">msg-type=</span><span style="color: #0000FF">&quot;{{userMessage.type}}<span data-ng-show="userMessage.compact"> compact</span>&quot; <span data-ng-show="userMessage.visible">
+    <span style="color: #FF0000">visible=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span data-ng-show="userMessage.dismiss">
+    <span style="color: #FF0000">dismissable=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span data-ng-show="userMessage.callback">
+    <span style="color: #FF0000">on-dismiss=</span><span style="color: #0000FF">&quot;callback()&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+    This isn't Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually starts subtracting from the sum total of knowledge in the universe.  Oops.
 <span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
 </pre></div>
+
+
 			</div>			
 	    </div>
 	
 	    <div class="options col span_4_of_12">
                 <fieldset>
-                    <legend>Type of Message</legend>
-                    Message Type: <select data-ng-model="userMessageType">
-                        <option value="success">Success</option>
-                        <option value="error">Error</option>
-                        <option value="warning">Warning</option>
-                        <option value="no-data">No Data</option>
-                        <option value="info">Info</option>
-                        <option value="loading">Loading</option>
-                    </select><br />
-                </fieldset>
-
-                <fieldset>
                     <legend>Options</legend>
+                    <label>
+						Message Type: 
+						<select data-ng-model="userMessage.type">
+							<option value="success">Success</option>
+							<option value="error">Error</option>
+							<option value="warning">Warning</option>
+							<option value="no-data">No Data</option>
+							<option value="info">Info</option>
+							<option value="loading">Loading</option>
+						</select>
+					</label>
 					<ul class="radio-list">
-						<li><label><input type="checkbox" data-ng-model="userMessageDismiss" />Dismissable</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessageCallback" />Callback (Function to run when dismissed)</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessageCompact" />Compact</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessageVisible.show" />Visible</label>
+						<li><label><input type="checkbox" data-ng-model="userMessage.dismiss" />Dismissable</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessage.callback" />Callback (Function to run when dismissed)</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessage.compact" />Compact</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessage.visible" />Visible</label>
 					</ul>
                 </fieldset>
 				

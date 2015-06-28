@@ -4,21 +4,25 @@
 			<div class="example">
 				<fieldset>
 					<legend>Form Title</legend>
-					<dl class="form section group">
-						<dt class="col span_3_of_12"><label for="formDropdown">Dropdown List</label></dt>
-						<dd class="col span_9_of_12">
+					<div class="form section group">
+						<div  class="col span_3_of_12"><label for="formDropdown" class="required">Dropdown List</label></div>
+						<div class="col span_9_of_12">
 							<select id="formDropdown">
 								<option value="palindrome">Palindrome</option>
 								<option value="anagram">Anagram</option>
 								<option value="ambigram">Ambigram</option>
 							</select>
-						</dd>
-						<dt class="col span_3_of_12">Checkbox</dt>
-						<dd class="col span_9_of_12">
+						</div>
+					</div>
+					<div class="form section group">
+						<div class="col span_3_of_12"><label>Checkbox</label></div>
+						<div class="col span_9_of_12">
 							<label><input type="checkbox" id="formCheckbox" /> This checkbox is self-referential</label>
-						</dd>
-						<dt class="col span_3_of_12">Radio Buttons</dt>
-						<dd class="col span_9_of_12">
+						</div>
+					</div>
+					<div class="form section group">
+						<div class="col span_3_of_12"><label>Radio Buttons</label></div>
+						<div class="col span_9_of_12">
 							<ul class="radio-list">
 								<li>
 									<label>
@@ -31,17 +35,61 @@
 									</label>
 								</li>
 							</ul>
-						</dd>
-						<dt class="col span_3_of_12"><label for="formTextbox">Text Box</label></dt>
-						<dd class="col span_9_of_12">
+						</div>
+					</div>
+					<div class="form section group">
+						<div class="col span_3_of_12"><label for="formTextbox" class="required">Text Box</label></div>
+						<div class="col span_9_of_12">
 							<input type="text" id="formTextbox" placeholder="Nonrandom letters" />
-						</dd>
-					</dl>
+						</div>
+					</div>
 				</fieldset>
 			</div>
 			
 			<div class="code">
-				<!-- Can beautify HTML with http://hilite.me --> 
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;fieldset&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;legend&gt;</span>Form Title<span style="color: #000080; font-weight: bold">&lt;/legend&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+         <span style="color: #000080; font-weight: bold">&lt;div</span>  <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Dropdown List<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;select</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;palindrome&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Palindrome<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;anagram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Anagram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;ambigram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Ambigram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;/select&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label&gt;</span>Checkbox<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;label&gt;&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;checkbox&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formCheckbox&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span> This checkbox is self-referential<span style="color: #000080; font-weight: bold">&lt;/label&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label&gt;</span>Radio Buttons<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;ul</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;radio-list&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;li&gt;</span>
+                    <span style="color: #000080; font-weight: bold">&lt;label&gt;</span>
+                        <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;radio&quot;</span> <span style="color: #FF0000">name=</span><span style="color: #0000FF">&quot;formRadio&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span> Mutually
+                    <span style="color: #000080; font-weight: bold">&lt;/label&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;li&gt;</span>
+                    <span style="color: #000080; font-weight: bold">&lt;label&gt;</span>
+                        <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;radio&quot;</span> <span style="color: #FF0000">name=</span><span style="color: #0000FF">&quot;formRadio&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span> Exclusive
+                    <span style="color: #000080; font-weight: bold">&lt;/label&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;/ul&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Text Box<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;text&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span> <span style="color: #FF0000">placeholder=</span><span style="color: #0000FF">&quot;Nonrandom letters&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/fieldset&gt;</span>
+</pre></div>
 			</div>
 		</div>
 	
@@ -49,16 +97,21 @@
 			<div class="options">
 				<fieldset>
 					<legend>Options</legend>
-					<label>
-						<input type="checkbox" data-ng-model="tablesCompact" /> Compact
-					</label>
+					N/A
+					<!--ul class="radio-list">
+						<li>
+							<label>
+								<input type="checkbox" data-ng-model="tablesCompact" /> Compact
+							</label>
+						</li>
+					</ul-->
 				</fieldset>
 			</div>
 			<div class="usage">
 				<h4>Usage</h4>
 				<ul>
-					<li>Keep these brief...</li>
-					<li>... but don't leave too much out.</li>
+					<li>Form laid out with the <a href="http://www.responsivegridsystem.com/calculator/">responsive grid css</a>.</li>
+					<li>Put the <em>required</em> class on a label to mark a field as required.</li>
 				</ul>
 			</div>
 	    </div>
