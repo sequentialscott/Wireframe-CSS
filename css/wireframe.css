@@ -278,7 +278,7 @@ UL {
 
 /* ------------------ ICONS ---------------------------------- */
 SPAN.icon {
-	background-image: url("../images/wf-sprite.png");
+	background-image: url("wf-sprite.png");
 	background-position: 40px 0;
 	background-repeat: no-repeat;
 	display: inline-block;
@@ -357,7 +357,7 @@ SPAN.icon.warning.compact { background-position: -420px 0;}
 	top: 1rem;
 }
 .message SPAN.closeIcon {
-	background-image: url("../images/wf-sprite.png");
+	background-image: url("wf-sprite.png");
 	background-position: -240px 0;
 	background-repeat: no-repeat;
 	background-size: 440px 20px;
