@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1>Style Guide</h1>
+    <h1>Wireframe.CSS Style Guide</h1>
     <div data-ng-app="styleguide" data-ng-controller="styleCtrl">
         <div>
             Find Topic: <input type="text" data-ng-model="topicFilter" />
@@ -171,7 +171,7 @@ Below are the individual topics that the ng-include above pulls in.
 					<div class="form section group">
 						<div  class="col span_3_of_12"><label for="formDropdown" class="required">Dropdown List</label></div>
 						<div class="col span_9_of_12">
-							<select id="formDropdown">
+							<select id="formDropdown" data-ng-class="{drawn:forms.handDrawn}">
 								<option value="palindrome">Palindrome</option>
 								<option value="anagram">Anagram</option>
 								<option value="ambigram">Ambigram</option>
@@ -204,7 +204,7 @@ Below are the individual topics that the ng-include above pulls in.
 					<div class="form section group">
 						<div class="col span_3_of_12"><label for="formTextbox" class="required">Text Box</label></div>
 						<div class="col span_9_of_12">
-							<input type="text" id="formTextbox" placeholder="Nonrandom letters" />
+							<input type="text" id="formTextbox" data-ng-class="{drawn:forms.handDrawn}" placeholder="Nonrandom letters" />
 						</div>
 					</div>
 				</fieldset>
@@ -214,9 +214,9 @@ Below are the individual topics that the ng-include above pulls in.
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;fieldset&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;legend&gt;</span>Form Title<span style="color: #000080; font-weight: bold">&lt;/legend&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
-         <span style="color: #000080; font-weight: bold">&lt;div</span>  <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Dropdown List<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span>  <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Dropdown List<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
-            <span style="color: #000080; font-weight: bold">&lt;select</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;select</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span><span data-ng-if="forms.handDrawn"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;drawn&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
                 <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;palindrome&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Palindrome<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
                 <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;anagram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Anagram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
                 <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;ambigram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Ambigram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
@@ -249,7 +249,7 @@ Below are the individual topics that the ng-include above pulls in.
     <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Text Box<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
-            <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;text&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span> <span style="color: #FF0000">placeholder=</span><span style="color: #0000FF">&quot;Nonrandom letters&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;text&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span><span data-ng-show="forms.handDrawn"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;drawn&quot;</span></span> <span style="color: #FF0000">placeholder=</span><span style="color: #0000FF">&quot;Nonrandom letters&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
 <span style="color: #000080; font-weight: bold">&lt;/fieldset&gt;</span>
@@ -261,14 +261,13 @@ Below are the individual topics that the ng-include above pulls in.
 			<div class="options">
 				<fieldset>
 					<legend>Options</legend>
-					N/A
-					<!--ul class="radio-list">
+					<ul class="radio-list">
 						<li>
 							<label>
-								<input type="checkbox" data-ng-model="tablesCompact" /> Compact
+								<input type="checkbox" data-ng-model="forms.handDrawn" /> Use Hand-Drawn Borders
 							</label>
 						</li>
-					</ul-->
+					</ul>
 				</fieldset>
 			</div>
 			<div class="usage">
@@ -329,7 +328,7 @@ Below are the individual topics that the ng-include above pulls in.
 	<div class="section group">
 		<div class="col span_8_of_12">
 			<div class="example">
-                <div class="panel">
+                <div class="panel" data-ng-class="{drawn:panels.handDrawn}">
 					<div class="panel-heading" data-ng-class="panels.headingColor" data-ng-show="panels.showHeading">
 						<h4>Panel Heading</h4>
 					</div>
@@ -343,8 +342,8 @@ Below are the individual topics that the ng-include above pulls in.
 			</div>
 			
 			<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span><span data-ng-show="panels.showHeading">
-    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-heading&quot;</span><span data-ng-show="panels.headerColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.headingColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel<span data-ng-show="panels.handDrawn"> drawn</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span><span data-ng-show="panels.showHeading">
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-heading&quot;</span><span data-ng-show="panels.headingColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.headingColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;h4&gt;</span>Panel Heading<span style="color: #000080; font-weight: bold">&lt;/h4&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span></span>
     <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body&quot;</span><span data-ng-show="panels.bodyColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.bodyColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
@@ -373,6 +372,12 @@ Below are the individual topics that the ng-include above pulls in.
 							<label>
 								<input type="checkbox" data-ng-model="panels.showFooter" />
 								Show Footer
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="checkbox" data-ng-model="panels.handDrawn" />
+								Use Hand-Drawn Border
 							</label>
 						</li>
 					</ul>
@@ -410,12 +415,14 @@ Below are the individual topics that the ng-include above pulls in.
 					<li>Use panels whenever you need a box.</li>
 					<li>The HTML for panels is the same as Bootstrap.</li>
 					<li>The color options are CSS classes based on a subset of CSS color keywords. You can use them on anything with a background color.</li>
+					<li>Use the class <em>drawn</em> on the .panel for the hand-drawn borders.  You can use this class on other elements as well.
 				</ul>
 			</div>
 	    </div>
 	</div>
 </div>
 </script>
+
 
 <!-- TABLES -------------------------------------------------------------------->
 <script type="text/ng-template" id="tables.html">

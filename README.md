@@ -1,8 +1,8 @@
 #Wireframe.css
 
 Wireframe.css is a CSS file you can use to make a page look like a hand sketched wireframe.  
-It's useful for exploring designs, usability testing, and early demos.  You can also use 
-a set of Angular JavaScript directives if your prototype uses Angular.
+It's intended for use with throw-away prototypes and is useful for exploring designs, usability 
+testing, and early demos.  You can also use a set of Angular JavaScript directives if your prototype uses Angular.
 
 ##Installation
 Download and unzip the repository.  Link your web page to wireframe.css.  Also, make sure that the icon file (wf-sprite.png) is in the same directory 

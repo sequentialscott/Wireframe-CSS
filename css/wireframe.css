@@ -130,11 +130,14 @@ FIELDSET {
 	border: 2px groove;
 	padding: 1rem;
 }
+LEGEND {
+	padding: 0 0.25rem;
+}
 .buttons {
 	text-align: center;
 }
 .wf-button {
-	background-color: white;
+	background-color: aliceblue;
 	border: solid #555 2px;
 	border-radius: 4px;
 	cursor: pointer;
@@ -145,6 +148,7 @@ FIELDSET {
 	box-shadow: 2px 1px 5px #777
 }
 .wf-button.secondary, .wf-button.cancel {
+	background-color: white;
 	box-shadow: none;
 }
 .wf-button.disabled {
@@ -157,6 +161,7 @@ FIELDSET {
 	padding: 3px;
 }
 UL.radio-list {
+	list-style-image: none;
 	list-style-type: none;
 	margin: 0 0 1.5rem 0;
 	padding-left: 0;
@@ -191,7 +196,7 @@ PRE {
 	font-family: 'Averia Gruesa Libre', monotype;
 }
 UL {
-	list-style-type: circle;
+	list-style-image: url(bullet.png);
 }
 .compact {
 	font-size: 0.88rem;
@@ -247,6 +252,10 @@ UL {
 	padding: 0.5rem;
 	margin: 0;
 }
+.panel.drawn .panel-heading {
+	border-bottom: 5px solid;
+	border-image: url(box.png) 5 5 5 5 stretch;
+}
 .panel .panel-heading H1,
 .panel .panel-heading H2,
 .panel .panel-heading H3,
@@ -271,8 +280,24 @@ UL {
 	margin: 0;
 	padding: 0.5rem;
 }
+.panel.drawn .panel-footer{
+	border-top: 5px solid;
+	border-image: url(box.png) 5 5 5 5 stretch;
+}
 .panel .panel-footer P {
 	margin: 0;
+}
+
+.drawn, .panel.drawn {
+	border: 5px solid;
+	border-image: url('box.png') 5 5 5 5 stretch;
+	-webkit-border-image: url('box.png') 5 5 5 5 stretch;
+	-moz-border-image: url('box.png') 5 5 5 5 stretch;
+	/*padding: 16px;*/
+}
+/* IE10 or less does not support border images. Here we can provide a fallback. */
+.lte10 .drawn {
+	border-width: 2px;
 }
 
 

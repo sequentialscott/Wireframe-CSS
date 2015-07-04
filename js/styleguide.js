@@ -28,9 +28,13 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 		headingLevel: "4",
 		hideIndicator: false
 	};
+	$scope.forms = {
+		handDrawn: true
+	};
 	$scope.panels = {
 		bodyColor: '',
 		footerColor: '',
+		handDrawn: true,
 		headingColor: '',
 		showHeading: true,
 		showFooter: false
@@ -64,3 +68,9 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
     };
 
 } ]);
+
+
+// Conditional comments not supported in IE10 without changing DOCTYPE to force quirks.
+// So we'll do some feature detection instead. Will handle the hand-drawn borders.
+if (/*@cc_on!@*/false)
+	document.documentElement.className += ' lte10';
