@@ -3,6 +3,7 @@ var styles = [
     { title: "Buttons", id: "buttons" },
     { title: "Expand & Collapse", id: "collapse" },
 	{ title: "Forms", id: "formLayout" },
+	{ title: "Icons", id: "icons" },
     { title: "Loading Indicator", id: "loading" },
 	{ title: "Panels", id: "panels" }, 
 	{ title: "Tables", id: "tables" }, 
@@ -10,6 +11,9 @@ var styles = [
 	{ title: "User Messages", id: "userMessages" }
 ];
 var colors = ["aliceblue", "antiquewhite", "azure", "beige", "bisque", "blanchedalmond", "burlywood", "cornsilk", "floralwhite", "gainsboro", "ghostwhite", "honeydew", "ivory", "khaki", "lavender", "lavenderblush", "lemonchiffon", "lightcyan", "lightgray", "lightgrey", "lightyellow", "linen", "mintcream", "mistyrose", "mocassin", "oldlace", "palegoldenrod", "papayawhip", "peachpuff", "powderblue", "rebeccapurple", "seashell", "silver", "thistle", "tomato", "wheat", "whitesmoke"]
+var icons = ["add", "arrowdown", "arrowright", "arrow", "attachment", "closed", "document", "doubledown", "doubleright", "download", "edit", "ellipsis", "error", "info", "minus", "ok", "open", "options", "plus", "reload", "upload", "warning"];
+
+
 
 /* Angular module and controller for style guide */
 var styleguide = angular.module('styleguide', ['wfDirectives']);
@@ -21,7 +25,8 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
     /* Initialize default page settings */
 	$scope.buttons = { 
 		alignment: "center",
-		compact: false
+		compact: false,
+		drawn: false
 	};
     $scope.collapse = { 
 		defaultCollapse: "open",
@@ -30,6 +35,11 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 	};
 	$scope.forms = {
 		handDrawn: true
+	};
+	$scope.icons = {
+		compact: false,
+		icon: "ok",
+		iconSet: icons
 	};
 	$scope.panels = {
 		bodyColor: '',

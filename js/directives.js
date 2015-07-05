@@ -38,9 +38,14 @@ angular.module('wfDirectives').directive('wfMessage', function () {
 				'<span ng-transclude></span>' + 
 			'</p>',
         link: function (scope, element, attrs) {
-			scope.$watch(function() {return element.attr('class'); }, function(newValue){
-				scope.iconCompact = element.hasClass('compact');
+			scope.isCompact = element.hasClass('compact');
+			attrs.$observe('class', function() {
+				scope.isCompact = element.hasClass('compact');
 			});
+			
+			//scope.$watch(function() {return element.attr('class'); }, function(newValue){
+			//	scope.iconCompact = element.hasClass('compact');
+			//});
 			//scope.isCompact = function() {
 			//	return element.hasClass('compact');
 			//};
