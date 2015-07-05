@@ -61,12 +61,16 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 		compact: false,
 		style: "instructions",
 	};
-	$scope.userMessage = {
-		callback: false,
-		compact: false,
-		dismiss: true,
-		type: "success",
-		visible: true
+	$scope.userMessages = {
+		callback: false,	// Why isn't this in the config object?  Because it's a Boolean bound to a checkbox and not an actual callback function.
+		config: {
+			compact: false,			// Set to true to make message use compact styles.
+			dismiss: true,			// Set to false if message shouldn't be dismissable.
+			onDismiss: function(){alert("Message dismissed.");},	// Callback function to run when message is dimsissed.
+			type: "success",
+			visible: true,		
+		},
+		angularDirective: true
 	};
 	
     $scope.scrollTo = function (id) {

@@ -641,26 +641,24 @@ Below are the individual topics that the ng-include above pulls in.
     <div class="section group">
 	    <div class="col span_8_of_12">
             <div class="example">
-			    <p wf-message 
-					msg-type="userMessage.type" 
-					visible="userMessage.visible" 
-					dismissable="userMessage.dismiss"  
-					data-ng-class="{compact: userMessage.compact}">
+			    <p wf-message config="userMessages.config">
                     This isn't Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually
 					starts subtracting from the sum total of knowledge in the universe.  Oops.
                 </p>
             </div>
 			
 			<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">wf-message</span> 
-    <span style="color: #FF0000">msg-type=</span><span style="color: #0000FF">&quot;{{userMessage.type}}<span data-ng-show="userMessage.compact"> compact</span>&quot; <span data-ng-show="userMessage.visible">
-    <span style="color: #FF0000">visible=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span data-ng-show="userMessage.dismiss">
-    <span style="color: #FF0000">dismissable=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span data-ng-show="userMessage.callback">
-    <span style="color: #FF0000">on-dismiss=</span><span style="color: #0000FF">&quot;callback()&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
-    This isn't Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually starts subtracting from the sum total of knowledge in the universe.  Oops.
+<!-- HTML generated using hilite.me --><div data-ng-show="userMessages.angularDirective" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">wf-message</span> <span style="color: #FF0000">config=</span><span style="color: #0000FF">&quot;userMessages.config&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    This isn&#39;t Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually
+    starts subtracting from the sum total of knowledge in the universe.  Oops.
 <span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
 </pre></div>
-
+<!-- HTML generated using hilite.me --><div data-ng-hide="userMessages.angularDirective" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;message {{userMessages.config.type}}<span data-ng-show="userMessages.config.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    This isn&#39;t Lorem Ipsum text, but it means the same thing. The longer it is,
+    the less it means, until it actually starts subtracting from the sum total
+    of knowledge in the universe. Oops.
+<span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
+</pre></div>
 
 			</div>			
 	    </div>
@@ -670,7 +668,7 @@ Below are the individual topics that the ng-include above pulls in.
                     <legend>Options</legend>
                     <label>
 						Message Type: 
-						<select data-ng-model="userMessage.type">
+						<select data-ng-model="userMessages.config.type">
 							<option value="success">Success</option>
 							<option value="error">Error</option>
 							<option value="warning">Warning</option>
@@ -680,19 +678,24 @@ Below are the individual topics that the ng-include above pulls in.
 						</select>
 					</label>
 					<ul class="radio-list">
-						<li><label><input type="checkbox" data-ng-model="userMessage.dismiss" />Dismissable</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessage.callback" />Callback (Function to run when dismissed)</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessage.compact" />Compact</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessage.visible" />Visible</label>
+						<li><label><input type="checkbox" data-ng-model="userMessages.config.dismiss" />Dismissable</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessages.callback" />Callback (Function to run when dismissed)</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessages.config.compact" />Compact</label></li>
+						<li><label><input type="checkbox" data-ng-model="userMessages.config.visible" />Visible</label>
+					</ul>
+					<ul class="radio-list">
+						<li><label><input type="checkbox" data-ng-model="userMessages.angularDirective" />Use Angular Directive</label></li>
 					</ul>
                 </fieldset>
 				
 				<div class="usage">
 					<h4>Usage</h4>
 					<ul>
-						<li>Use the class "message" for notices to the user.</li>
+						<li>If you use the Angular directive, set its behavior using a config object in the controller.</li>
+						<li>All the options show above are available in the directive.  See the directive file for the more about the config object.</li>
+						<li>If not using the directive, use the class <em>message</em> for notices to the user.</li>
 						<li>Then, use the class for the type of message it is.</li>
-						<li>The "compact" class works with messages.</li>
+						<li>The <em>compact</em> class works with messages.</li>
 						<li>Speak the user's language.  Address him/her directly and use the word "you" if appropriate.</li>
 						<li>Be sure grammar and spelling are correct.</li>
 					</ul>

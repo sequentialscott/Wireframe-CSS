@@ -7,61 +7,47 @@ angular.module('wfDirectives', []);
      Include this file after the angular.js file. */
 
 /* -------------------------- USER MESSAGES ---------------------------- */
-// Use this for user messages on Angular pages that required animation or dismiss options.
-// message-class: String with the class name saying what kind of message it is (success, error, etc.).  Can also be done in regular class attribute.
-// dismissable: Set this attribute to false if you don't want to let users dismiss the message.  Otherwise it is dismissable.
-// highlight: Include to animate the message's display with a color that fades out.  No value required.
-// time-to-show: Number of milliseconds to display the message before it fades out on its own.
-// on-dismiss: Callback function to be executed when dismissing the message.  Often used to reset the show message flag in the controller.
+// The user message directive takes a single attribute, which should point to a configuration object in the controller.  If the controller
+// updates a value in the object, the 2-way binding will update inside the directive.  The configuration object should have these key/value pairs:
+// compact: Boolean. Tells directive to use compact styles if true.
+// dismiss: Boolean. Set to false if you don't want to let users dismiss the message.  Otherwise it is dismissable.
+// onDismiss: Function. This function runs when users dismiss the message.
+// type: String. The class name of the message type (error, warning, success, info, no-data, loading).
+// visible: Boolean. True shows the message, and false hides the message.
 angular.module('wfDirectives').directive('wfMessage', function () {
     return {
         restrict: 'AE',
         scope: {
-			visible: '=',			// Object from controller with Boolean to control visibility
-            onDismiss: '&',         // Function to call on dismissal
-            msgType: '=',  			// To monitor the type of message (success, warning, etc.) and update it if it changes.
-			dismissable: '='		// Show or hide the icon to dismiss the message
+			config: '=',	// Object in controller that has the settings for the message.
         },
         replace: true,
         transclude: true,
         template: 
-			'<p class="message {{ msgType }}" data-ng-show="visible">' + 
-				'<span class="closeIcon iconX secondary compact" data-ng-if="dismissable" data-ng-click="dismiss()"></span>' + 
+			'<p class="message {{ config.type }}" data-ng-show="config.visible">' + 
+				'<span class="closeIcon iconX secondary compact" data-ng-if="config.dismiss" data-ng-click="dismiss()"></span>' + 
 				'<span class="icon" data-ng-class="{ ' +
-					'ok: msgType === \'success\',' + 
-					'error: msgType===\'error\',' +
-					'warning: msgType === \'warning\',' +
-					'ellipsis: msgType === \'no-data\',' +
-					'info: msgType === \'info\',' + 
-					'compact: iconCompact' +
+					'ok: config.type === \'success\',' + 
+					'error: config.type===\'error\',' +
+					'warning: config.type === \'warning\',' +
+					'ellipsis: config.type === \'no-data\',' +
+					'info: config.type === \'info\',' + 
+					'compact: config.compact' +
 				'}"></span>' +
 				'<span ng-transclude></span>' + 
 			'</p>',
         link: function (scope, element, attrs) {
-			scope.isCompact = element.hasClass('compact');
-			attrs.$observe('class', function() {
-				scope.isCompact = element.hasClass('compact');
+			scope.$watch('config.compact', function(){
+				if (scope.config.compact) {
+					element.addClass('compact');
+				} else {
+					element.removeClass('compact');
+				};
 			});
-			
-			//scope.$watch(function() {return element.attr('class'); }, function(newValue){
-			//	scope.iconCompact = element.hasClass('compact');
-			//});
-			//scope.isCompact = function() {
-			//	return element.hasClass('compact');
-			//};
-			//scope.classList = attrs.class;
-			//scope.$watch('classList', function(){
-			//	scope.iconCompact = scope.isCompact();
-			//});
-			//scope.iconCompact = isCompact();
-			//attrs.$observe('class', function(){
-			//	scope.iconCompact = isCompact();
-			//});
 			
             // Dismissing
 			scope.dismiss = function(){
-				if (scope.onDismiss) scope.onDismiss();
-				scope.visible = false;
+				if (scope.config.onDismiss) scope.config.onDismiss();
+				scope.config.visible = false;
 			};
 
         }
