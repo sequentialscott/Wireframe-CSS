@@ -80,6 +80,7 @@ Below are the individual topics that the ng-include above pulls in.
 							<input type="checkbox" data-ng-model="buttons.drawn" /> Use Hand-Drawn Borders
 						</label>
 					</li>
+				</ul>
 			</fieldset>
 			
 			<div class="usage">
@@ -102,13 +103,30 @@ Below are the individual topics that the ng-include above pulls in.
 		<div class="col span_8_of_12">
 			<div class="example">
 				<div wf-collapse heading-level="collapse.headingLevel" heading-text="Click This Heading" hide-indicator="collapse.hideIndicator">
-					<div id="collapseExample" style="width: 70%; height: 5rem; background-color: burlywood; margin: 1rem;"></div>
+					<div id="collapseExample" style="border: 1px grey solid; width: 70%; padding: 1rem; background-color: oldlace; margin: 1rem;">
+						<p>
+							If you aren't using Angular, you'll need to open and show divs with JavaScript.  For the triangle 
+							before the clickable heading, you can use: 
+						</p>
+						<p>
+							<span style="color: #000080; font-weight: bold">&lt;span</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;collapse-toggle icon open compact&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;/span&gt;</span>
+						</p>
+						<p>
+							Toggle the span's class <em>open</em> with <em>closed</em> to make the triangle point correctly.
+						</p>
+					</div>
 				</div>
 			</div>
 				
 				<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-collapse</span><span data-ng-if="collapse.headingLevel"> <span style="color: #FF0000">heading-level=</span><span style="color: #0000FF">&quot;{{ collapse.headingLevel }}&quot;</span> <span style="color: #FF0000">heading-text=</span><span style="color: #0000FF">&quot;Click This Heading&quot;</span></span><span data-ng-show="collapse.hideIndicator"> <span style="color: #FF0000">hide-indicator=</span><span style="color: #0000FF">&quot;true&quot;</span></span><span style="color:#FF0000" data-ng-show="collapse.defaultCollapse==='closed'"> closed</span><span style="color: #000080; font-weight: bold">&gt;</span>
-    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">style=</span><span style="color: #0000FF">&quot;width: 70%; height: 5rem; background-color: burlywood; margin: 1rem;&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;/div&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-collapse</span> 
+    <span style="color: #FF0000">heading-level=</span><span style="color: #0000FF">&quot;{{collapse.headingLevel}}&quot;</span>
+    <span style="color: #FF0000">heading-text=</span><span style="color: #0000FF">&quot;Click This Heading&quot;</span> 
+    <span style="color: #FF0000">hide-indicator=</span><span style="color: #0000FF">&quot;{{collapse.hideIndicator}}&quot;</span><span style="color:#FF0000" data-ng-show="collapse.defaultCollapse==='closed'">
+    closed</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;collapseExample&quot;</span> <span style="color: #FF0000">style=</span><span style="color: #0000FF">&quot;border: 1px grey solid; width: 70%; padding: 1rem; background-color: oldlace; margin: 1rem;&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        ...
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
 <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
 </pre></div>
 				</div>

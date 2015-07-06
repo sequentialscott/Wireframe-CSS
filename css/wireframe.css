@@ -192,6 +192,9 @@ EM {
 LI {
 	margin-bottom: 0.25rem;
 }
+P {
+	margin-bottom: 1rem;
+}
 PRE {
 	font-family: 'Averia Gruesa Libre', monotype;
 }
