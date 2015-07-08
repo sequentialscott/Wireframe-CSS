@@ -136,7 +136,7 @@ LEGEND {
 .buttons {
 	text-align: center;
 }
-.wf-button {
+.button {
 	background-color: aliceblue;
 	border: solid #555 2px;
 	border-radius: 4px;
@@ -147,14 +147,14 @@ LEGEND {
 	position: relative;
 	box-shadow: 2px 1px 5px #777
 }
-.wf-button.secondary, .wf-button.cancel {
+.button.secondary, .button.cancel {
 	background-color: white;
 	box-shadow: none;
 }
-.wf-button.disabled {
+.button.disabled {
 	background-color: #EDEDED;
 }
-.buttons.compact .wf-button {
+.buttons.compact .button {
 	border-width: 1px;
 	font-size: 0.71rem;
 	margin: 0.25rem 0 0 0;
