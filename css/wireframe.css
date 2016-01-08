@@ -312,6 +312,7 @@ SPAN.icon {
 	display: inline-block;
 	height: 40px;
 	margin: 0.5rem;
+	vertical-align: middle;
 	width: 40px;
 }
 SPAN.icon.compact {
