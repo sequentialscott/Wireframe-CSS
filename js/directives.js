@@ -98,6 +98,7 @@ angular.module('wfDirectives').directive('wfCollapse', function () {
 });
 
 
+
 /* -------------------- LOADING INDICATOR ------------------------------------ */
 angular.module('wfDirectives').directive('wfLoading', function () {
     return {
@@ -105,4 +106,124 @@ angular.module('wfDirectives').directive('wfLoading', function () {
         replace: 'true',
         template: '<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>'
     }
+});
+
+
+/* -------------------- MODAL DIALOG ----------------------------------------- */
+// Shows based on a Boolean variable in the controller's scope.
+// From: https://github.com/adamalbrecht/ngModal
+angular.module('wfDirectives').directive('wfModal', function () {
+    return {
+        restrict: 'AE',
+        scope: {
+            show: '=',
+            title: '@',
+            onClose: '&?'
+        },
+        replace: true,
+        transclude: true,
+        template: 
+			"<div class='wf-modal' ng-show='show'>" + 
+				"<div class='wf-modal-overlay' ng-click='hideModal()'></div>" + 
+					"<div class='wf-modal-dialog' ng-style='dialogStyle'>" + 
+						"<span class='wf-modal-title' ng-show='title && title.length' ng-bind='title'></span>" + 
+						"<div class='wf-modal-close' ng-click='hideModal()'>" + 
+							"<div><span class='icon error compact'></span></div>" + 
+						"</div>" + 
+						"<div class='wf-modal-dialog-content' ng-transclude></div>" + 
+				"</div>" + 
+			"</div>",
+		link: function (scope, element, attrs) {
+            var setupStyle;
+
+            setupStyle = function () {
+                scope.dialogStyle = {};
+                if (attrs.width) {
+                    scope.dialogStyle['width'] = attrs.width;
+                };
+                if (attrs.height) {
+                    scope.dialogStyle['height'] = attrs.height;
+                }
+                return scope.dialogStyle;
+            };
+
+            scope.hideModal = function () {
+                scope.show = false;
+                if (scope.onClose) scope.onClose();
+            };
+
+            scope.$watch('show', function (newVal, oldVal) {
+                if (newVal && !oldVal) {
+                    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+                } else {
+                    document.getElementsByTagName("body")[0].style.overflow = "";
+                };
+            });
+
+            setupStyle();
+        }
+    };
+});
+
+
+/* -------------------- TABS --------------------------------------------------- */
+angular.module('wfDirectives').directive('wfTabset', function(){
+	var tabsetCtrl = function(){
+		var self = this;
+		self.tabs = [];
+		self.select = function(selectedTab) {
+			angular.forEach(self.tabs, function(tab){
+				if (tab.active && tab !== selectedTab) {
+					tab.active = false;
+				};
+			});
+			selectedTab.active = true;
+		};
+		self.registerTab = function(tab) {
+			self.tabs.push(tab);
+			if (self.tabs.length === 1) {
+				tab.active = true
+			};
+		};
+	};
+	var tabsetTemplate = 
+	"<div class='tabset'>" +
+		"<ul>" +
+			"<li data-ng-repeat='tab in tabset.tabs' data-ng-click='tabset.select(tab)' data-ng-class='{active: tab.active}'>{{ tab.tabTitle }}</li>" +
+		"</ul>" +
+		
+		"<div data-ng-transclude></div>" +
+	"</div>";
+	
+	return {
+		restrict: 'AE',
+		transclude: true,
+		scope: {},
+		template: tabsetTemplate,
+		controllerAs: 'tabset',
+		bindToController: true,
+		controller: tabsetCtrl
+	};
+});
+angular.module('wfDirectives').directive('wfTab', function(){
+	var tabLinking = function(scope, element, attrs, tabsetCtrl){
+		scope.active = false;
+		tabsetCtrl.registerTab(scope);
+	};
+	var tabTemplate = 
+	"<div class='tab' data-ng-show='active'>" +
+		"<div data-ng-transclude></div>" +
+	"</div>";
+
+	return {
+		restrict: "AE",
+		require: "^wfTabset",
+		replace: true,
+		transclude: true,
+		scope: {
+			tabTitle: '@'
+		},
+		template: tabTemplate,
+		link: tabLinking
+	};
 });

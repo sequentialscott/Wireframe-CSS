@@ -400,6 +400,57 @@ Below are the individual topics that the ng-include above pulls in.
 </div>
 </script>
 
+
+<!-- MODAL DIALOG -------------------------------------------------------------->
+<script type="text/ng-template" id="modal.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+				<div data-ng-click="modal.show = true" style="cursor: pointer">
+					<span class="icon options"></span> Click me to open a modal dialog.
+				</div>
+				<div wf-modal title="Modal Title" show="modal.show" width="80%" height="500px">
+					<p>You can put buttons, tables, and all kinds of stuff in here. Click the X or outside the box to close it.</p>
+				</div>
+			</div>
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">data-ng-click=</span><span style="color: #0000FF">&quot;modal.show = true&quot;</span> <span style="color: #FF0000">style=</span><span style="color: #0000FF">&quot;cursor: pointer&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;span</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;icon options&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;/span&gt;</span> Click me to open a modal dialog.
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-modal</span> <span style="color: #FF0000">title=</span><span style="color: #0000FF">&quot;Modal Title&quot;</span> <span style="color: #FF0000">show=</span><span style="color: #0000FF">&quot;modal.show&quot;</span> <span style="color: #FF0000">width=</span><span style="color: #0000FF">&quot;80%&quot;</span> <span style="color: #FF0000">height=</span><span style="color: #0000FF">&quot;500px&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;p&gt;</span>You can put buttons, tables, and all kinds of stuff in here. Click the X or outside the box to close it.<span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre></div>			
+			</div>
+		</div>
+		<div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					N/A
+				</fieldset>
+			</div>
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>This is an Angular only feature for now.</li>
+					<li>
+						The required <em>show</em> attribute should point to a Boolean value on the scope,
+						where false means the dialog is hidden.  Switch it to true to show it.
+					</li>
+					<li>The <em>title</em>, <em>width</em>, and </em>height<em> attributes are all optional.</li>
+					<li>An <em>on-dismiss</em> attribute can point to a function on the scope to execute when the modal closes.</li>
+					<li>Once open, click the X or anywhere outside the box to dismiss it.</li>
+					<li>Based on this directive:  <a href=" https://github.com/adamalbrecht/ngModal">https://github.com/adamalbrecht/ngModal</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
+
 <!-- PANELS -------------------------------------------------------------------->
 <script type="text/ng-template" id="panels.html">
 <div class="topic">
@@ -602,6 +653,89 @@ Below are the individual topics that the ng-include above pulls in.
 				</ul>
 			</div>
 	    </div>
+	</div>
+</div>
+</script>
+
+
+<!-- TABS ---------------------------------------------------------------------->
+<script type="text/ng-template" id="tabs.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+				<div wf-tabset>
+					<div wf-tab tab-title="Personas">
+						<blockquote>
+							A <strong>user persona</strong> is a representation of the goals and behavior of a hypothesized group of users. 
+							In most cases, personas are synthesized from data collected from interviews with users. They are 
+							captured in 1–2 page descriptions that include behavior patterns, goals, skills, attitudes, and 
+							the environment, with a few fictional personal details to make the persona a realistic character. 
+							For each product, more than one persona is usually created, but one persona should always be the 
+							primary focus for the design.
+							<cite>
+								<a href="https://en.wikipedia.org/wiki/Persona_(user_experience)">Wikipedia: Persona (user experience)</a>
+							</cite>
+						</blockquote>
+					</div>
+					<div wf-tab tab-title="Scenarios">
+						<p>
+							Scenarios describe the stories and context behind why a specific user or user group comes 
+							to your site.  They note the goals and questions to be achieved and sometimes define the 
+							possibilities of how the user(s) can achieve them on the site.
+							<cite>
+								<a href="http://www.usability.gov/how-to-and-tools/methods/scenarios.html">Usability.gov: Scenarios</a>
+							</cite>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="code">
+<!-- HTML generated using hilite.me --><div data-ng-show="tabs.code==='angular'" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-tabset</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-tab</span> <span style="color: #FF0000">tab-title=</span><span style="color: #0000FF">&quot;Personas&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        ...
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-tab</span> <span style="color: #FF0000">tab-title=</span><span style="color: #0000FF">&quot;Scenarios&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        ...
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre></div>
+<!-- HTML generated using hilite.me --><div data-ng-show="tabs.code==='nonangular'" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;tabset&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;ul&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;li</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;active&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Personas<span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;li&gt;</span>Scenarios<span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/ul&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;tab&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        A <span style="color: #000080; font-weight: bold">&lt;strong&gt;</span>user persona<span style="color: #000080; font-weight: bold">&lt;/strong&gt;</span> is ...
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;tab&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        Scenarios describe the ...
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre></div>
+			</div>
+		</div>
+		<div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					<ul class="radio-list">
+						<li><label><input type="radio" name="tabCode" value="angular" data-ng-model="tabs.code" />Angular</label></li>
+						<li><label><input type="radio" name="tabCode" value="nonangular" data-ng-model="tabs.code" />Non-Angular (HTML Only)</label></li>
+					</ul>
+				</fieldset>
+			</div>
+			
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Provide the tab's text as an attribute on the DIV.tab.</li>
+					<li>Any HTML can appear in the DIV.tab.</li>
+					<li>The first tab will be selected by default.</li>
+					<li>If you choose not to use the Angular directive, your JS should handle showing and hiding the DIV.tabs and changing the .active class on the LI items in the UL.</li>
+				</ul>
+			</div>			
+		</div>
 	</div>
 </div>
 </script>

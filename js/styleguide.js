@@ -5,8 +5,10 @@ var styles = [
 	{ title: "Forms", id: "formLayout" },
 	{ title: "Icons", id: "icons" },
     { title: "Loading Indicator", id: "loading" },
+	{ title: "Modal Dialog", id: "modal" }, 
 	{ title: "Panels", id: "panels" }, 
 	{ title: "Tables", id: "tables" }, 
+	{ title: "Tabs", id: "tabs" },
     { title: "Text Styles", id: "textStyles" },
 	{ title: "User Messages", id: "userMessages" }
 ];
@@ -41,6 +43,9 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 		icon: "ok",
 		iconSet: icons
 	};
+	$scope.modal = {
+		show: false
+	};
 	$scope.panels = {
 		bodyColor: '',
 		footerColor: '',
@@ -56,6 +61,9 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 		toggleSort: function(){
 			this.sortDirection = this.sortDirection === "ascending" ? "descending" : "ascending";
 		}
+	};
+	$scope.tabs = {
+		code: 'angular'
 	};
 	$scope.textStyles = {
 		compact: false,
