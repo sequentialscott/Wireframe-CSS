@@ -14,7 +14,7 @@
     <h1>Wireframe.CSS Style Guide</h1>
     <div data-ng-app="styleguide" data-ng-controller="styleCtrl">
         <div>
-            Find Topic: <input type="text" data-ng-model="topicFilter" />
+            <label>Find Topic: <input type="text" data-ng-model="topicFilter" /></label>
             <ul class="toc">
                 <li data-ng-repeat="style in styles | filter:topicFilter">
                     <a href="" data-ng-click="scrollTo(style.id)">{{ style.title }}</a>
@@ -311,6 +311,141 @@ Below are the individual topics that the ng-include above pulls in.
 
 
 
+<!-- GRID AND LAYOUT ----------------------------------------------------------->
+<script type="text/ng-template" id="grid.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+<div class="section group">
+    <div class="col span_{{ grid.panelA }}_of_12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3>Panel Heading A</h3>
+            </div>
+            <div class="panel-body">Panel is {{ grid.panelA }} columns wide.</div>
+        </div>
+    </div>
+    <div class="col span_{{ grid.calculatePanelB() }}_of_12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3>Panel Heading B</h3>
+            </div>
+            <div class="panel-body">Panel is {{ grid.calculatePanelB() }} columns wide.</div>
+        </div>
+    </div>
+</div>
+<div class="section group">
+    <div class="col span_4_of_12">
+        <div class="panel">
+            <div class="panel-body oldlace">
+                span_4_of_12
+            </div>
+        </div>
+    </div>
+    <div class="col span_4_of_12">
+        <div class="panel">
+            <div class="panel-body bisque">
+                span_4_of_12
+            </div>
+        </div>
+    </div>
+    <div class="col span_4_of_12">
+        <div class="panel">
+            <div class="panel-body tomato">
+                span_4_of_12
+            </div>
+        </div>
+    </div>
+</div>
+			</div>
+
+			<div class="code">
+                <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_{{ grid.panelA }}_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-heading&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;h3&gt;</span>Panel Heading A<span style="color: #000080; font-weight: bold">&lt;/h3&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Panel is {{ grid.panelA }} columns wide.<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_{{ grid.calculatePanelB() }}_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-heading&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                <span style="color: #000080; font-weight: bold">&lt;h3&gt;</span>Panel Heading B<span style="color: #000080; font-weight: bold">&lt;/h3&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Panel is {{ grid.calculatePanelB() }} columns wide.<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_4_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body oldlace&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                span_4_of_12
+            <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_4_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body bisque&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                span_4_of_12
+            <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_4_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body tomato&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+                span_4_of_12
+            <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+        <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
+</pre></div>
+			</div>
+		</div>
+
+		<div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					<ul class="radio-list">
+						<li>
+							<label>
+								<input type="radio" value="4" data-ng-model="grid.panelA" />
+								Set Panel A to 4 columns wide
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="radio" value="6" data-ng-model="grid.panelA" />
+								Set Panel A to 6 columns wide
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Set up a layout row with div.section.group.</li>
+					<li>Set up columns inside the section with div.col.span_x_of_12.</li>
+                    <li>
+                        You can put col and span on any block element, but it works best to use divs whose only
+                        purpose is the layout.
+                    </li>
+                    <li>
+                        This grid system comes from <a href="http://www.responsivegridsystem.com/">Graham Miller's
+                        Responsive Grid Systems</a> site, which has a good explanation of how to use it.
+                    </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
 <!-- ICONS --------------------------------------------------------------------->
 <script type="text/ng-template" id="icons.html">
 <div class="topic">
@@ -439,7 +574,7 @@ Below are the individual topics that the ng-include above pulls in.
 						The required <em>show</em> attribute should point to a Boolean value on the scope,
 						where false means the dialog is hidden.  Switch it to true to show it.
 					</li>
-					<li>The <em>title</em>, <em>width</em>, and </em>height<em> attributes are all optional.</li>
+					<li>The <em>title</em>, <em>width</em>, and <em>height</em> attributes are all optional.</li>
 					<li>An <em>on-dismiss</em> attribute can point to a function on the scope to execute when the modal closes.</li>
 					<li>Once open, click the X or anywhere outside the box to dismiss it.</li>
 					<li>Based on this directive:  <a href=" https://github.com/adamalbrecht/ngModal">https://github.com/adamalbrecht/ngModal</a></li>
@@ -535,7 +670,7 @@ Below are the individual topics that the ng-include above pulls in.
 									<option value="">Footer Colors</option>
 								</select>
 							</div>
-					<ul>
+					</ul>
 				</fieldset>
 			</div>
 			<div class="usage">
