@@ -1,3 +1,5 @@
+(function(){
+
 /* Contents for the style guide */
 var styles = [
     { title: "Buttons", id: "buttons" },
@@ -19,34 +21,36 @@ var icons = ["add", "arrowdown", "arrowright", "arrow", "attachment", "closed", 
 
 /* Angular module and controller for style guide */
 var styleguide = angular.module('styleguide', ['wfDirectives']);
+styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', styleCtrl]);
 
-styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', function ($scope, $anchorScroll, $location) {
-    $scope.styles = styles;
-	$scope.colors = colors;
+function styleCtrl ($scope, $anchorScroll, $location) {
+	var vm = this;
+    vm.styles = styles;
+	vm.colors = colors;
 
     /* Initialize default page settings */
-	$scope.buttons = { 
+	vm.buttons = { 
 		alignment: "center",
 		compact: false,
 		drawn: false
 	};
-    $scope.collapse = { 
+    vm.collapse = { 
 		defaultCollapse: "open",
 		headingLevel: "4",
 		hideIndicator: false
 	};
-	$scope.forms = {
+	vm.forms = {
 		handDrawn: true
 	};
-	$scope.icons = {
+	vm.icons = {
 		compact: false,
 		icon: "ok",
 		iconSet: icons
 	};
-	$scope.modal = {
+	vm.modal = {
 		show: false
 	};
-	$scope.panels = {
+	vm.panels = {
 		bodyColor: '',
 		footerColor: '',
 		handDrawn: true,
@@ -54,7 +58,7 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 		showHeading: true,
 		showFooter: false
 	};
-	$scope.tables = {
+	vm.tables = {
 		compact: false,
 		showSort: true,
 		sortDirection: "ascending",
@@ -62,14 +66,14 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 			this.sortDirection = this.sortDirection === "ascending" ? "descending" : "ascending";
 		}
 	};
-	$scope.tabs = {
+	vm.tabs = {
 		code: 'angular'
 	};
-	$scope.textStyles = {
+	vm.textStyles = {
 		compact: false,
 		style: "instructions",
 	};
-	$scope.userMessages = {
+	vm.userMessages = {
 		callback: false,	// Why isn't this in the config object?  Because it's a Boolean bound to a checkbox and not an actual callback function.
 		config: {
 			compact: false,			// Set to true to make message use compact styles.
@@ -81,18 +85,19 @@ styleguide.controller('styleCtrl', ['$scope', '$anchorScroll', '$location', func
 		angularDirective: true
 	};
 	
-    $scope.scrollTo = function (id) {
+    vm.scrollTo = function (id) {
         var old = $location.hash();
         $location.hash(id);
         $anchorScroll();
         //reset to old to keep any additional routing logic from kicking in
         $location.hash(old);
     };
-
-} ]);
+};
 
 
 // Conditional comments not supported in IE10 without changing DOCTYPE to force quirks.
 // So we'll do some feature detection instead. Will handle the hand-drawn borders.
 if (/*@cc_on!@*/false)
 	document.documentElement.className += ' lte10';
+	
+})();

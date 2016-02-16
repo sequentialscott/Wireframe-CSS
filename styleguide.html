@@ -12,17 +12,17 @@
 
 <body>
     <h1>Wireframe.CSS Style Guide</h1>
-    <div data-ng-app="styleguide" data-ng-controller="styleCtrl">
+    <div data-ng-app="styleguide" data-ng-controller="styleCtrl as guide">
         <div>
-            Find Topic: <input type="text" data-ng-model="topicFilter" />
+            Find Topic: <input type="text" data-ng-model="guide.topicFilter" />
             <ul class="toc">
-                <li data-ng-repeat="style in styles | filter:topicFilter">
-                    <a href="" data-ng-click="scrollTo(style.id)">{{ style.title }}</a>
+                <li data-ng-repeat="style in guide.styles | filter:guide.topicFilter">
+                    <a href="" data-ng-click="guide.scrollTo(style.id)">{{ style.title }}</a>
                 </li>
             </ul>
         </div>
 
-        <div class="panel" data-ng-repeat="style in styles | filter:topicFilter">
+        <div class="panel" data-ng-repeat="style in guide.styles | filter:guide.topicFilter">
             <a id="{{ style.id }}"></a>
             <div class="panel-heading">
                 <h2>{{ style.title }}</h2>
@@ -42,20 +42,20 @@ Below are the individual topics that the ng-include above pulls in.
     <div class="section group">
         <div class="col span_8_of_12">
             <div class="example">
-                <div class="buttons" data-ng-class="{compact: buttons.compact, center: buttons.alignment === 'center', left: buttons.alignment=='left', right: buttons.alignment =='right' }">
-					<input type="button" class="button" data-ng-class="{ drawn: buttons.drawn }" value="Primary Button" />
-					<button class="button secondary" data-ng-class="{ drawn: buttons.drawn }">Secondary Button</button>
-					<button class="button secondary disabled" data-ng-class="{ drawn: buttons.drawn }" disabled>Disabled Button</button>
-					<input type="button" class="button cancel" data-ng-class="{ drawn: buttons.drawn }" value="Cancel" />
+                <div class="buttons" data-ng-class="{compact: guide.buttons.compact, center: guide.buttons.alignment === 'center', left: guide.buttons.alignment=='left', right: guide.buttons.alignment =='right' }">
+					<input type="button" class="button" data-ng-class="{ drawn: guide.buttons.drawn }" value="Primary Button" />
+					<button class="button secondary" data-ng-class="{ drawn: guide.buttons.drawn }">Secondary Button</button>
+					<button class="button secondary disabled" data-ng-class="{ drawn: guide.buttons.drawn }" disabled>Disabled Button</button>
+					<input type="button" class="button cancel" data-ng-class="{ drawn: guide.buttons.drawn }" value="Cancel" />
                 </div>
             </div>
 			
         <div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;buttons<span data-ng-show="buttons.compact"> compact</span><span data-ng-show="buttons.alignment === 'left'"> left</span><span data-ng-show="buttons.alignment === 'right'"> right</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
-    <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;button&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button<span data-ng-show="buttons.drawn"> drawn</span>&quot;</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;Primary Button&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
-    <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button secondary<span data-ng-show="buttons.drawn"> drawn</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Secondary Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
-    <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button secondary disabled<span data-ng-show="buttons.drawn"> drawn</span>&quot;</span> <span style="color: #FF0000">disabled</span><span style="color: #000080; font-weight: bold">&gt;</span>Disabled Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
-    <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;button&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button cancel<span data-ng-show="buttons.drawn"> drawn</span>&quot;</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;Cancel&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;buttons<span data-ng-show="guide.buttons.compact"> compact</span><span data-ng-show="guide.buttons.alignment === 'left'"> left</span><span data-ng-show="guide.buttons.alignment === 'right'"> right</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;button&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button<span data-ng-show="guide.buttons.drawn"> drawn</span>&quot;</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;Primary Button&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button secondary<span data-ng-show="guide.buttons.drawn"> drawn</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Secondary Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button secondary disabled<span data-ng-show="guide.buttons.drawn"> drawn</span>&quot;</span> <span style="color: #FF0000">disabled</span><span style="color: #000080; font-weight: bold">&gt;</span>Disabled Button<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;button&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button cancel<span data-ng-show="guide.buttons.drawn"> drawn</span>&quot;</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;Cancel&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
 <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
 </pre></div>
         </div>			
@@ -65,19 +65,19 @@ Below are the individual topics that the ng-include above pulls in.
             <fieldset>
                 <legend>Options</legend>
 				<ul class="radio-list">
-					<li><label><input type="radio" name="buttonAlign" value="center" data-ng-model="buttons.alignment" />Centered</label></li>
-					<li><label><input type="radio" name="buttonAlign" value="left" data-ng-model="buttons.alignment" />Left</label></li>
-					<li><label><input type="radio" name="buttonAlign" value="right" data-ng-model="buttons.alignment" />Right</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="center" data-ng-model="guide.buttons.alignment" />Centered</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="left" data-ng-model="guide.buttons.alignment" />Left</label></li>
+					<li><label><input type="radio" name="buttonAlign" value="right" data-ng-model="guide.buttons.alignment" />Right</label></li>
 				</ul>
 				<ul class="radio-list">
 					<li>
 						<label>
-							<input type="checkbox" id="buttonsCompact" data-ng-model="buttons.compact" /> Compact
+							<input type="checkbox" id="buttonsCompact" data-ng-model="guide.buttons.compact" /> Compact
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="checkbox" data-ng-model="buttons.drawn" /> Use Hand-Drawn Borders
+							<input type="checkbox" data-ng-model="guide.buttons.drawn" /> Use Hand-Drawn Borders
 						</label>
 					</li>
 				</ul>
@@ -102,7 +102,7 @@ Below are the individual topics that the ng-include above pulls in.
 	<div class="section group">
 		<div class="col span_8_of_12">
 			<div class="example">
-				<div wf-collapse heading-level="collapse.headingLevel" heading-text="Click This Heading" hide-indicator="collapse.hideIndicator">
+				<div wf-collapse heading-level="guide.collapse.headingLevel" heading-text="Click This Heading" hide-indicator="guide.collapse.hideIndicator">
 					<div id="collapseExample" style="border: 1px grey solid; width: 70%; padding: 1rem; background-color: oldlace; margin: 1rem;">
 						<p>
 							If you aren't using Angular, you'll need to open and show divs with JavaScript.  For the triangle 
@@ -120,9 +120,9 @@ Below are the individual topics that the ng-include above pulls in.
 				
 				<div class="code">
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-collapse</span> 
-    <span style="color: #FF0000">heading-level=</span><span style="color: #0000FF">&quot;{{collapse.headingLevel}}&quot;</span>
+    <span style="color: #FF0000">heading-level=</span><span style="color: #0000FF">&quot;{{guide.collapse.headingLevel}}&quot;</span>
     <span style="color: #FF0000">heading-text=</span><span style="color: #0000FF">&quot;Click This Heading&quot;</span> 
-    <span style="color: #FF0000">hide-indicator=</span><span style="color: #0000FF">&quot;{{collapse.hideIndicator}}&quot;</span><span style="color:#FF0000" data-ng-show="collapse.defaultCollapse==='closed'">
+    <span style="color: #FF0000">hide-indicator=</span><span style="color: #0000FF">&quot;{{guide.collapse.hideIndicator}}&quot;</span><span style="color:#FF0000" data-ng-show="guide.collapse.defaultCollapse==='closed'">
     closed</span><span style="color: #000080; font-weight: bold">&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;collapseExample&quot;</span> <span style="color: #FF0000">style=</span><span style="color: #0000FF">&quot;border: 1px grey solid; width: 70%; padding: 1rem; background-color: oldlace; margin: 1rem;&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
         ...
@@ -138,13 +138,13 @@ Below are the individual topics that the ng-include above pulls in.
 				<ul class="radio-list">
 					<li>
 						<label>
-							<input type="radio" value="open" data-ng-model="collapse.defaultCollapse" /> 
+							<input type="radio" value="open" data-ng-model="guide.collapse.defaultCollapse" /> 
 							Default to Open
 					</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" value="closed" data-ng-model="collapse.defaultCollapse" />
+							<input type="radio" value="closed" data-ng-model="guide.collapse.defaultCollapse" />
 							Default to Closed
 						</label>
 					</li>
@@ -152,7 +152,7 @@ Below are the individual topics that the ng-include above pulls in.
 				<ul class="radio-list">
 					<li>
 						<label>
-							<input type="checkbox" data-ng-model="collapse.hideIndicator" /> Hide Arrow Indicator
+							<input type="checkbox" data-ng-model="guide.collapse.hideIndicator" /> Hide Arrow Indicator
 						</label>
 					</li>
 				</ul>
@@ -160,7 +160,7 @@ Below are the individual topics that the ng-include above pulls in.
 					<li>
 						<label>
 							Heading Level 
-							<select data-ng-model="collapse.headingLevel">
+							<select data-ng-model="guide.collapse.headingLevel">
 								<option value="1">H1</option>
 								<option value="2">H2</option>
 								<option value="3">H3</option>
@@ -198,7 +198,7 @@ Below are the individual topics that the ng-include above pulls in.
 					<div class="form section group">
 						<div  class="col span_3_of_12"><label for="formDropdown" class="required">Dropdown List</label></div>
 						<div class="col span_9_of_12">
-							<select id="formDropdown" data-ng-class="{drawn:forms.handDrawn}">
+							<select id="formDropdown" data-ng-class="{drawn:guide.forms.handDrawn}">
 								<option value="palindrome">Palindrome</option>
 								<option value="anagram">Anagram</option>
 								<option value="ambigram">Ambigram</option>
@@ -231,7 +231,7 @@ Below are the individual topics that the ng-include above pulls in.
 					<div class="form section group">
 						<div class="col span_3_of_12"><label for="formTextbox" class="required">Text Box</label></div>
 						<div class="col span_9_of_12">
-							<input type="text" id="formTextbox" data-ng-class="{drawn:forms.handDrawn}" placeholder="Nonrandom letters" />
+							<input type="text" id="formTextbox" data-ng-class="{drawn:guide.forms.handDrawn}" placeholder="Nonrandom letters" />
 						</div>
 					</div>
 				</fieldset>
@@ -243,7 +243,7 @@ Below are the individual topics that the ng-include above pulls in.
     <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;div</span>  <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Dropdown List<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
-            <span style="color: #000080; font-weight: bold">&lt;select</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span><span data-ng-if="forms.handDrawn"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;drawn&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;select</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formDropdown&quot;</span><span data-ng-if="guide.forms.handDrawn"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;drawn&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
                 <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;palindrome&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Palindrome<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
                 <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;anagram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Anagram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
                 <span style="color: #000080; font-weight: bold">&lt;option</span> <span style="color: #FF0000">value=</span><span style="color: #0000FF">&quot;ambigram&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Ambigram<span style="color: #000080; font-weight: bold">&lt;/option&gt;</span>
@@ -276,7 +276,7 @@ Below are the individual topics that the ng-include above pulls in.
     <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;form section group&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_3_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;label</span> <span style="color: #FF0000">for=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;required&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Text Box<span style="color: #000080; font-weight: bold">&lt;/label&gt;&lt;/div&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;col span_9_of_12&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
-            <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;text&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span><span data-ng-show="forms.handDrawn"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;drawn&quot;</span></span> <span style="color: #FF0000">placeholder=</span><span style="color: #0000FF">&quot;Nonrandom letters&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;input</span> <span style="color: #FF0000">type=</span><span style="color: #0000FF">&quot;text&quot;</span> <span style="color: #FF0000">id=</span><span style="color: #0000FF">&quot;formTextbox&quot;</span><span data-ng-show="guide.forms.handDrawn"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;drawn&quot;</span></span> <span style="color: #FF0000">placeholder=</span><span style="color: #0000FF">&quot;Nonrandom letters&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
 <span style="color: #000080; font-weight: bold">&lt;/fieldset&gt;</span>
@@ -291,7 +291,7 @@ Below are the individual topics that the ng-include above pulls in.
 					<ul class="radio-list">
 						<li>
 							<label>
-								<input type="checkbox" data-ng-model="forms.handDrawn" /> Use Hand-Drawn Borders
+								<input type="checkbox" data-ng-model="guide.forms.handDrawn" /> Use Hand-Drawn Borders
 							</label>
 						</li>
 					</ul>
@@ -317,11 +317,11 @@ Below are the individual topics that the ng-include above pulls in.
 	<div class="section group">
 		<div class="col span_8_of_12">
 			<div class="example">
-                <span class="icon {{icons.icon}}" data-ng-class="{compact:icons.compact}"></span>
+                <span class="icon {{guide.icons.icon}}" data-ng-class="{compact:guide.icons.compact}"></span>
 			</div>
 			
 			<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;span</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;icon {{icons.icon}}<span data-ng-show="icons.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;/span&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;span</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;icon {{guide.icons.icon}}<span data-ng-show="guide.icons.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;&lt;/span&gt;</span>
 </pre></div>
 
 			</div>
@@ -335,14 +335,14 @@ Below are the individual topics that the ng-include above pulls in.
 						<li>
 							<label>
 								Choose Icon: 
-								<select type="radio" value="open" data-ng-model="icons.icon" data-ng-options="icon for icon in icons.iconSet"> </select>
+								<select type="radio" value="open" data-ng-model="guide.icons.icon" data-ng-options="icon for icon in guide.icons.iconSet"> </select>
 							</label>
 						</li>
 					</ul>
 					<ul class="radio-list">
 						<li>
 							<label>
-								<input type="checkbox" data-ng-model="icons.compact" /> Compact
+								<input type="checkbox" data-ng-model="guide.icons.compact" /> Compact
 							</label>
 						</li>
 					</ul>
@@ -407,10 +407,10 @@ Below are the individual topics that the ng-include above pulls in.
 	<div class="section group">
 		<div class="col span_8_of_12">
 			<div class="example">
-				<div data-ng-click="modal.show = true" style="cursor: pointer">
+				<div data-ng-click="guide.modal.show = true" style="cursor: pointer">
 					<span class="icon options"></span> Click me to open a modal dialog.
 				</div>
-				<div wf-modal title="Modal Title" show="modal.show" width="80%" height="500px">
+				<div wf-modal title="Modal Title" show="guide.modal.show" width="80%" height="500px">
 					<p>You can put buttons, tables, and all kinds of stuff in here. Click the X or outside the box to close it.</p>
 				</div>
 			</div>
@@ -457,28 +457,28 @@ Below are the individual topics that the ng-include above pulls in.
 	<div class="section group">
 		<div class="col span_8_of_12">
 			<div class="example">
-                <div class="panel" data-ng-class="{drawn:panels.handDrawn}">
-					<div class="panel-heading" data-ng-class="panels.headingColor" data-ng-show="panels.showHeading">
+                <div class="panel" data-ng-class="{drawn:guide.panels.handDrawn}">
+					<div class="panel-heading" data-ng-class="guide.panels.headingColor" data-ng-show="guide.panels.showHeading">
 						<h4>Panel Heading</h4>
 					</div>
-					<div class="panel-body" data-ng-class="panels.bodyColor">
+					<div class="panel-body" data-ng-class="guide.panels.bodyColor">
 						<p>The panels follow the same format as Bootstrap, in case that helps you.</p>
 					</div>
-					<div class="panel-footer" data-ng-class="panels.footerColor" data-ng-show="panels.showFooter">
+					<div class="panel-footer" data-ng-class="guide.panels.footerColor" data-ng-show="guide.panels.showFooter">
 						You could stick a status bar down here. Or totals.
 					</div>
 				</div>
 			</div>
 			
 			<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel<span data-ng-show="panels.handDrawn"> drawn</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span><span data-ng-show="panels.showHeading">
-    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-heading&quot;</span><span data-ng-show="panels.headingColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.headingColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel<span data-ng-show="guide.panels.handDrawn"> drawn</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span><span data-ng-show="guide.panels.showHeading">
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-heading&quot;</span><span data-ng-show="guide.panels.headingColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ guide.panels.headingColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;h4&gt;</span>Panel Heading<span style="color: #000080; font-weight: bold">&lt;/h4&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span></span>
-    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body&quot;</span><span data-ng-show="panels.bodyColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.bodyColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-body&quot;</span><span data-ng-show="guide.panels.bodyColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ guide.panels.bodyColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;p&gt;</span>The panels follow the same format as Bootstrap, in case that helps you.<span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
-    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span><span data-ng-show="panels.showFooter">
-    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-footer&quot;</span><span data-ng-show="panels.footerColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ panels.footerColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+    <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span><span data-ng-show="guide.panels.showFooter">
+    <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;panel-footer&quot;</span><span data-ng-show="guide.panels.footerColor"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ guide.panels.footerColor }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
         You could stick a status bar down here. Or totals.
     <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span></span>
 <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
@@ -493,19 +493,19 @@ Below are the individual topics that the ng-include above pulls in.
 					<ul class="radio-list">
 						<li>
 							<label>
-								<input type="checkbox" data-ng-model="panels.showHeading" /> 
+								<input type="checkbox" data-ng-model="guide.panels.showHeading" /> 
 								Show Heading
 						</label>
 						</li>
 						<li>
 							<label>
-								<input type="checkbox" data-ng-model="panels.showFooter" />
+								<input type="checkbox" data-ng-model="guide.panels.showFooter" />
 								Show Footer
 							</label>
 						</li>
 						<li>
 							<label>
-								<input type="checkbox" data-ng-model="panels.handDrawn" />
+								<input type="checkbox" data-ng-model="guide.panels.handDrawn" />
 								Use Hand-Drawn Border
 							</label>
 						</li>
@@ -515,7 +515,7 @@ Below are the individual topics that the ng-include above pulls in.
 						<li class="section group">
 							<label class="col span_5_of_12">Heading Color </label>
 							<div class="col span_7_of_12">
-								<select data-ng-model="panels.headingColor" data-ng-options="color for color in colors">
+								<select data-ng-model="guide.panels.headingColor" data-ng-options="color for color in guide.colors">
 									<option value="">Heading Colors</option>
 								</select>
 							</div>
@@ -523,7 +523,7 @@ Below are the individual topics that the ng-include above pulls in.
 						<li class="section group">
 							<label class="col span_5_of_12">Body Color</label> 
 							<div class="col span_7_of_12">
-								<select data-ng-model="panels.bodyColor" data-ng-options="color for color in colors">
+								<select data-ng-model="guide.panels.bodyColor" data-ng-options="color for color in guide.colors">
 									<option value="">Body Colors</option>
 								</select>
 							</div>
@@ -531,7 +531,7 @@ Below are the individual topics that the ng-include above pulls in.
 						<li class="section group">
 							<label class="col span_5_of_12" for="panelsFooterColors">Footer Colors</label>
 							<div class="col span_7_of_12">
-								<select id="panelsFooterColors" data-ng-model="panels.footerColor" data-ng-options="color for color in colors">
+								<select id="panelsFooterColors" data-ng-model="guide.panels.footerColor" data-ng-options="color for color in guide.colors">
 									<option value="">Footer Colors</option>
 								</select>
 							</div>
@@ -559,15 +559,15 @@ Below are the individual topics that the ng-include above pulls in.
 	<div class="section group">
 		<div class="col span_8_of_12">
 			<div class="example">
-                <table data-ng-class="{ compact: tables.compact }">
+                <table data-ng-class="{ compact: guide.tables.compact }">
 					<thead>
 						<tr>
 							<th 
 								data-ng-class="{
-									ascending: tables.showSort && tables.sortDirection === 'ascending',
-									descending: tables.showSort && tables.sortDirection === 'descending'
+									ascending: guide.tables.showSort && guide.tables.sortDirection === 'ascending',
+									descending: guide.tables.showSort && guide.tables.sortDirection === 'descending'
 								}" 
-								data-ng-click="tables.toggleSort()">
+								data-ng-click="guide.tables.toggleSort()">
 								Doctor
 							</th>
 							<th>Ship</th>
@@ -595,10 +595,10 @@ Below are the individual topics that the ng-include above pulls in.
 			</div>
 			
 			<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;table</span><span data-ng-show="tables.compact"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;compact&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;table</span><span data-ng-show="guide.tables.compact"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;compact&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;thead&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;tr&gt;</span>
-            <span style="color: #000080; font-weight: bold">&lt;th</span><span data-ng-show="tables.showSort"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ tables.sortDirection }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>Doctor<span style="color: #000080; font-weight: bold">&lt;/th&gt;</span>
+            <span style="color: #000080; font-weight: bold">&lt;th</span><span data-ng-show="guide.tables.showSort"> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ guide.tables.sortDirection }}&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>Doctor<span style="color: #000080; font-weight: bold">&lt;/th&gt;</span>
             <span style="color: #000080; font-weight: bold">&lt;th&gt;</span>Ship<span style="color: #000080; font-weight: bold">&lt;/th&gt;</span>
             <span style="color: #000080; font-weight: bold">&lt;th&gt;</span>Actor<span style="color: #000080; font-weight: bold">&lt;/th&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;/tr&gt;</span>
@@ -632,13 +632,13 @@ Below are the individual topics that the ng-include above pulls in.
 					<ul class="radio-list">
 						<li>
 							<label>
-							<input type="checkbox" data-ng-model="tables.showSort" />
+							<input type="checkbox" data-ng-model="guide.tables.showSort" />
 							Show sorting
 							</label>
 						</li>
 						<li>
 							<label>
-								<input type="checkbox" data-ng-model="tables.compact" /> Compact
+								<input type="checkbox" data-ng-model="guide.tables.compact" /> Compact
 							</label>
 						</li>
 					</ul>
@@ -691,7 +691,7 @@ Below are the individual topics that the ng-include above pulls in.
 				</div>
 			</div>
 			<div class="code">
-<!-- HTML generated using hilite.me --><div data-ng-show="tabs.code==='angular'" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-tabset</span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div data-ng-show="guide.tabs.code==='angular'" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-tabset</span><span style="color: #000080; font-weight: bold">&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">wf-tab</span> <span style="color: #FF0000">tab-title=</span><span style="color: #0000FF">&quot;Personas&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
         ...
     <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
@@ -700,7 +700,7 @@ Below are the individual topics that the ng-include above pulls in.
     <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
 <span style="color: #000080; font-weight: bold">&lt;/div&gt;</span>
 </pre></div>
-<!-- HTML generated using hilite.me --><div data-ng-show="tabs.code==='nonangular'" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;tabset&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div data-ng-show="guide.tabs.code==='nonangular'" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;div</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;tabset&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
     <span style="color: #000080; font-weight: bold">&lt;ul&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;li</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;active&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Personas<span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
         <span style="color: #000080; font-weight: bold">&lt;li&gt;</span>Scenarios<span style="color: #000080; font-weight: bold">&lt;/li&gt;</span>
@@ -720,8 +720,8 @@ Below are the individual topics that the ng-include above pulls in.
 				<fieldset>
 					<legend>Options</legend>
 					<ul class="radio-list">
-						<li><label><input type="radio" name="tabCode" value="angular" data-ng-model="tabs.code" />Angular</label></li>
-						<li><label><input type="radio" name="tabCode" value="nonangular" data-ng-model="tabs.code" />Non-Angular (HTML Only)</label></li>
+						<li><label><input type="radio" name="tabCode" value="angular" data-ng-model="guide.tabs.code" />Angular</label></li>
+						<li><label><input type="radio" name="tabCode" value="nonangular" data-ng-model="guide.tabs.code" />Non-Angular (HTML Only)</label></li>
 					</ul>
 				</fieldset>
 			</div>
@@ -747,12 +747,12 @@ Below are the individual topics that the ng-include above pulls in.
     <div class="section group">
 	    <div class="col span_8_of_12">
             <div class="example">
-			    <p class="{{ textStyles.style }}" data-ng-class="{ compact: textStyles.compact }">
+			    <p class="{{ guide.textStyles.style }}" data-ng-class="{ compact: guide.textStyles.compact }">
                     Check out Ginny Redish's book on writing for the web, <a href="http://www.amazon.com/Letting-Words-Second-Edition-Technologies/dp/0123859301">Letting Go of the Words</a>.
                 </p>
             </div>
 			<div class="code">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ textStyles.style }}<span data-ng-show="textStyles.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;{{ guide.textStyles.style }}<span data-ng-show="guide.textStyles.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
     Check out Ginny Redish&#39;s book on writing for the web, <span style="color: #000080; font-weight: bold">&lt;a</span> <span style="color: #FF0000">href=</span><span style="color: #0000FF">&quot;http://www.amazon.com/Letting-Words-Second-Edition-Technologies/dp/0123859301&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Letting Go of the Words<span style="color: #000080; font-weight: bold">&lt;/a&gt;</span>.
 <span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
 </pre></div>
@@ -763,13 +763,13 @@ Below are the individual topics that the ng-include above pulls in.
             <fieldset>
                 <legend>Options</legend>
 				<ul class="radio-list">
-					<li><label><input type="radio" name="textStyle" value="instructions" data-ng-model="textStyles.style" />Instructions</label></li>
-					<li><label><input type="radio" name="textStyle" value="note" data-ng-model="textStyles.style" />Note</label></li>
-					<li><label><input type="radio" name="textStyle" value="fieldHelp" data-ng-model="textStyles.style" />Field Help</label></li>
-					<li><label><input type="radio" name="textStyle" value="currentStatus" data-ng-model="textStyles.style" />Current Status</label></li>
+					<li><label><input type="radio" name="textStyle" value="instructions" data-ng-model="guide.textStyles.style" />Instructions</label></li>
+					<li><label><input type="radio" name="textStyle" value="note" data-ng-model="guide.textStyles.style" />Note</label></li>
+					<li><label><input type="radio" name="textStyle" value="fieldHelp" data-ng-model="guide.textStyles.style" />Field Help</label></li>
+					<li><label><input type="radio" name="textStyle" value="currentStatus" data-ng-model="guide.textStyles.style" />Current Status</label></li>
 				</ul>
 				<label>
-					<input type="checkbox" data-ng-model="textStyles.compact" /> Compact
+					<input type="checkbox" data-ng-model="guide.textStyles.compact" /> Compact
 				</label>
             </fieldset>
 			
@@ -793,19 +793,19 @@ Below are the individual topics that the ng-include above pulls in.
     <div class="section group">
 	    <div class="col span_8_of_12">
             <div class="example">
-			    <p wf-message config="userMessages.config">
+			    <p wf-message config="guide.userMessages.config">
                     This isn't Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually
 					starts subtracting from the sum total of knowledge in the universe.  Oops.
                 </p>
             </div>
 			
 			<div class="code">
-<!-- HTML generated using hilite.me --><div data-ng-show="userMessages.angularDirective" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">wf-message</span> <span style="color: #FF0000">config=</span><span style="color: #0000FF">&quot;userMessages.config&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div data-ng-show="guide.userMessages.angularDirective" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">wf-message</span> <span style="color: #FF0000">config=</span><span style="color: #0000FF">&quot;guide.userMessages.config&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
     This isn&#39;t Lorem Ipsum text, but it means the same thing.  The longer it is, the less it means, until it actually
     starts subtracting from the sum total of knowledge in the universe.  Oops.
 <span style="color: #000080; font-weight: bold">&lt;/p&gt;</span>
 </pre></div>
-<!-- HTML generated using hilite.me --><div data-ng-hide="userMessages.angularDirective" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;message {{userMessages.config.type}}<span data-ng-show="userMessages.config.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+<!-- HTML generated using hilite.me --><div data-ng-hide="guide.userMessages.angularDirective" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">&lt;p</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;message {{guide.userMessages.config.type}}<span data-ng-show="guide.userMessages.config.compact"> compact</span>&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
     This isn&#39;t Lorem Ipsum text, but it means the same thing. The longer it is,
     the less it means, until it actually starts subtracting from the sum total
     of knowledge in the universe. Oops.
@@ -820,7 +820,7 @@ Below are the individual topics that the ng-include above pulls in.
                     <legend>Options</legend>
                     <label>
 						Message Type: 
-						<select data-ng-model="userMessages.config.type">
+						<select data-ng-model="guide.userMessages.config.type">
 							<option value="success">Success</option>
 							<option value="error">Error</option>
 							<option value="warning">Warning</option>
@@ -830,13 +830,13 @@ Below are the individual topics that the ng-include above pulls in.
 						</select>
 					</label>
 					<ul class="radio-list">
-						<li><label><input type="checkbox" data-ng-model="userMessages.config.dismiss" />Dismissable</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessages.callback" />Callback (Function to run when dismissed)</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessages.config.compact" />Compact</label></li>
-						<li><label><input type="checkbox" data-ng-model="userMessages.config.visible" />Visible</label>
+						<li><label><input type="checkbox" data-ng-model="guide.userMessages.config.dismiss" />Dismissable</label></li>
+						<li><label><input type="checkbox" data-ng-model="guide.userMessages.callback" />Callback (Function to run when dismissed)</label></li>
+						<li><label><input type="checkbox" data-ng-model="guide.userMessages.config.compact" />Compact</label></li>
+						<li><label><input type="checkbox" data-ng-model="guide.userMessages.config.visible" />Visible</label>
 					</ul>
 					<ul class="radio-list">
-						<li><label><input type="checkbox" data-ng-model="userMessages.angularDirective" />Use Angular Directive</label></li>
+						<li><label><input type="checkbox" data-ng-model="guide.userMessages.angularDirective" />Use Angular Directive</label></li>
 					</ul>
                 </fieldset>
 				
