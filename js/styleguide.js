@@ -5,6 +5,7 @@ var styles = [
     { title: "Buttons", id: "buttons" },
     { title: "Expand & Collapse", id: "collapse" },
 	{ title: "Forms", id: "formLayout" },
+    { title: "Grid & Layout", id: "grid" },
 	{ title: "Icons", id: "icons" },
     { title: "Loading Indicator", id: "loading" },
 	{ title: "Modal Dialog", id: "modal" }, 
@@ -14,7 +15,7 @@ var styles = [
     { title: "Text Styles", id: "textStyles" },
 	{ title: "User Messages", id: "userMessages" }
 ];
-var colors = ["aliceblue", "antiquewhite", "azure", "beige", "bisque", "blanchedalmond", "burlywood", "cornsilk", "floralwhite", "gainsboro", "ghostwhite", "honeydew", "ivory", "khaki", "lavender", "lavenderblush", "lemonchiffon", "lightcyan", "lightgray", "lightgrey", "lightyellow", "linen", "mintcream", "mistyrose", "mocassin", "oldlace", "palegoldenrod", "papayawhip", "peachpuff", "powderblue", "rebeccapurple", "seashell", "silver", "thistle", "tomato", "wheat", "whitesmoke"]
+var colors = ["aliceblue", "antiquewhite", "azure", "beige", "bisque", "blanchedalmond", "burlywood", "cornsilk", "floralwhite", "gainsboro", "ghostwhite", "honeydew", "ivory", "khaki", "lavender", "lavenderblush", "lemonchiffon", "lightcyan", "lightgray", "lightgrey", "lightyellow", "linen", "mintcream", "mistyrose", "mocassin", "oldlace", "palegoldenrod", "papayawhip", "peachpuff", "powderblue", "rebeccapurple", "seashell", "silver", "thistle", "tomato", "wheat", "whitesmoke"];
 var icons = ["add", "arrowdown", "arrowright", "arrow", "attachment", "closed", "document", "doubledown", "doubleright", "download", "edit", "ellipsis", "error", "info", "minus", "ok", "open", "options", "plus", "reload", "upload", "warning"];
 
 
@@ -42,6 +43,13 @@ function styleCtrl ($scope, $anchorScroll, $location) {
 	vm.forms = {
 		handDrawn: true
 	};
+    vm.grid={
+        panelA: 4,
+        panelB: 8,
+        calculatePanelB: function(){
+            return 12 - this.panelA;
+        }
+    };
 	vm.icons = {
 		compact: false,
 		icon: "ok",
@@ -71,7 +79,7 @@ function styleCtrl ($scope, $anchorScroll, $location) {
 	};
 	vm.textStyles = {
 		compact: false,
-		style: "instructions",
+		style: "instructions"
 	};
 	vm.userMessages = {
 		callback: false,	// Why isn't this in the config object?  Because it's a Boolean bound to a checkbox and not an actual callback function.
@@ -80,7 +88,7 @@ function styleCtrl ($scope, $anchorScroll, $location) {
 			dismiss: true,			// Set to false if message shouldn't be dismissable.
 			onDismiss: function(){alert("Message dismissed.");},	// Callback function to run when message is dimsissed.
 			type: "success",
-			visible: true,		
+			visible: true
 		},
 		angularDirective: true
 	};
