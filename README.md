@@ -4,6 +4,8 @@ Wireframe.css is a CSS file you can use to make a page look like a hand sketched
 It's intended for use with throw-away prototypes and is useful for exploring designs, usability 
 testing, and early demos.  You can also use a set of Angular JavaScript directives if your prototype uses Angular.
 
+See the style guide for it, which also uses the CSS and JS at http://sequentialscott.github.io/Wireframe-CSS/
+
 ##Installation
 Download and unzip the repository, or install it with Bower: `bower install Wireframe-CSS`
 
