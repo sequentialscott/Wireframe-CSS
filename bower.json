@@ -1,0 +1,17 @@
+{
+  "name": "Wireframe-CSS",
+  "homepage": "https://github.com/sequentialscott/Wireframe-CSS",
+  "authors": [
+    "Scott McDaniel"
+  ],
+  "description": "CSS and JavaScript to create quick prototypes witha wireframe style",
+  "main": "['index.html', 'js/starterController.js', 'css/wireframe.css']",
+  "moduleType": [],
+  "keywords": [
+    "['wireframe'",
+    "'style'",
+    "'style",
+    "guide']"
+  ],
+  "license": "\"MIT\""
+}
