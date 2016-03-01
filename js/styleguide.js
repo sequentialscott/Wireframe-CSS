@@ -13,6 +13,7 @@ var styles = [
 	{ title: "Tables", id: "tables" }, 
 	{ title: "Tabs", id: "tabs" },
     { title: "Text Styles", id: "textStyles" },
+	{ title: "Tooltips", id: "tooltips" },
 	{ title: "User Messages", id: "userMessages" }
 ];
 var colors = ["aliceblue", "antiquewhite", "azure", "beige", "bisque", "blanchedalmond", "burlywood", "cornsilk", "floralwhite", "gainsboro", "ghostwhite", "honeydew", "ivory", "khaki", "lavender", "lavenderblush", "lemonchiffon", "lightcyan", "lightgray", "lightgrey", "lightyellow", "linen", "mintcream", "mistyrose", "mocassin", "oldlace", "palegoldenrod", "papayawhip", "peachpuff", "powderblue", "rebeccapurple", "seashell", "silver", "thistle", "tomato", "wheat", "whitesmoke"];
@@ -80,6 +81,10 @@ function styleCtrl ($scope, $anchorScroll, $location) {
 	vm.textStyles = {
 		compact: false,
 		style: "instructions"
+	};
+	vm.tooltips = {
+		position: "bottom",
+		clickTrigger: false
 	};
 	vm.userMessages = {
 		callback: false,	// Why isn't this in the config object?  Because it's a Boolean bound to a checkbox and not an actual callback function.

@@ -5,7 +5,7 @@ angular.module("myApp", ["wfDirectives"]);
 angular.controller("myAppCtrl", ctrl);
 
 // If you need to inject $scope or other services into the controller...
-// ctrl.$inject(['$scope', 'a', 'b', 'c']);
+// ctrl.$inject = (['$scope', 'a', 'b', 'c']);
 // function ctrl($scope, a, b, c) { ... };
 
 

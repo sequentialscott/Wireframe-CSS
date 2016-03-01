@@ -116,6 +116,7 @@ TH.descending:after {
 TABLE.compact TH.ascending:after { top: 0; }
 TABLE.compact TH.descending:after { top: 8px; }
 
+
 /* ------------------- WIDGETS ----------------------------- */
 BUTTON, INPUT, SELECT {
 	font-family: "Architects Daughter", sans-serif;
@@ -132,6 +133,15 @@ FIELDSET {
 }
 LEGEND {
 	padding: 0 0.25rem;
+}
+UL.radio-list {
+	list-style-image: none;
+	list-style-type: none;
+	margin: 0 0 1.5rem 0;
+	padding-left: 0;
+}
+UL.radio-list LI {
+	margin: 0.125rem 0;
 }
 .buttons {
 	text-align: center;
@@ -160,15 +170,31 @@ LEGEND {
 	margin: 0.25rem 0 0 0;
 	padding: 3px;
 }
-UL.radio-list {
-	list-style-image: none;
-	list-style-type: none;
-	margin: 0 0 1.5rem 0;
-	padding-left: 0;
+.tooltip {
+    background-color: cornsilk;
+    border: 1px solid burlywood;
+    color: black;
+    display: block;
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 1;
+    padding: 0.5rem;
+    position: absolute;
+    width: 20rem;
+    z-index: 10000;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    -ms-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
-UL.radio-list LI {
-	margin: 0.125rem 0;
+.position-relative { /* Added to the tooltip's parent to allow positioning of the tooltip */
+    position: relative;
 }
+.cursor-pointer {
+	cursor: pointer;
+}
+
 
 
 /* ------------------- TEXT STYLES --------------------------- */
@@ -234,6 +260,7 @@ UL {
 }
 .instructions {
 	border-left: 5px solid lightsteelblue;
+	margin-bottom: 1rem;
 	padding-left: 0.5rem;
 }
 .note {
