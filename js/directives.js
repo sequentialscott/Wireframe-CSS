@@ -227,3 +227,95 @@ angular.module('wfDirectives').directive('wfTab', function(){
 		link: tabLinking
 	};
 });
+
+
+/* ---------------------------- TOOLTIP -------------------------------------------- */
+// Use with SPAN.icon.popup-help, placed inside it (immediate child relationship).
+// Use the position attribute with 'left', 'right', 'bottom', or 'top' for placement.  Default is 'bottom'.
+angular.module('wfDirectives').directive('wfTooltip', function(wfTooltipMgr) {
+    return {
+        restrict: 'AE',
+        scope: {
+            position: '@',
+			trigger: '@'
+        },
+        transclude: true,
+        template: '<div class="tooltip" data-ng-show="showTooltip" data-ng-style="style" data-ng-transclude></div>',
+        link: link
+    };
+
+    function link(scope, element, attrs) {
+        scope.showTooltip = false;
+        scope.style = {}
+		scope.eventType = scope.trigger || 'mouseenter';
+        scope.displayPosition = scope.position || 'right';
+        switch (scope.displayPosition) {
+            case 'right':
+                scope.style.right = '-21.5rem'; // Tooltip is 20 rem wide.
+				scope.style.top = '0';
+				break;
+            case 'left':
+                scope.style.left = '-21.5rem';
+				scope.style.top = '0';
+                break;
+            case 'bottom':
+                scope.style.top = '2rem';
+                scope.style.left = '-10rem';
+                break;
+            case 'top':
+                scope.style.bottom = '2rem';
+                scope.style.left = '-10rem';
+                break;
+        };
+        scope.parent = element.parent();
+        scope.parent.addClass("position-relative");
+		scope.parent.addClass("cursor-pointer");
+        scope.parent.bind(scope.eventType, function (event) {
+            event.stopPropagation();
+            wfTooltipMgr.dismissAll();
+            scope.showTooltip = true;
+            scope.$apply();
+            prepDismissTooltip();
+        });
+
+        function prepDismissTooltip() {
+			var body, eventType;
+			eventType = scope.eventType === "mouseenter" ? "mouseleave" : "click";
+			if (eventType === "click"){
+				body = document.getElementsByTagName('body');
+				body = angular.element(body);
+				body.bind("click", function () {
+					scope.dismissTooltip();
+					body.unbind(scope.eventType);
+				});
+			};
+			if (eventType === "mouseleave"){
+				scope.parent.bind("mouseleave", function(){
+					scope.dismissTooltip();
+					scope.parent.unbind("mouseleave");
+				});
+			};
+        };
+        scope.dismissTooltip = function() {
+            scope.showTooltip = false;
+            scope.$apply();
+        };
+        wfTooltipMgr.registerDismiss(scope.dismissTooltip);
+    };
+});
+angular.module("wfDirectives").factory('wfTooltipMgr', function() {
+    // Purpose: Make it so that clicking a tooltip closes any other tooltips on the page.
+    // Each tooltip registers a function that will close it.  When the user clicks a tooltip,
+    // it invokes the dismissAll function here, which executes each registered dismissal function.
+    var manager = {};
+    manager.dismissFunctions = [];
+    manager.registerDismiss = function(dismissFunction) {
+        manager.dismissFunctions.push(dismissFunction);
+    };
+    manager.dismissAll = function() {
+        for (var i = 0; i < manager.dismissFunctions.length; i++) {
+            manager.dismissFunctions[i].call();
+        };
+    };
+    return manager;
+});

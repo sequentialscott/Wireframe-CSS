@@ -922,6 +922,80 @@ Below are the individual topics that the ng-include above pulls in.
 </script>
 
 
+<!-- TOOLTIPS ----------------------------------------------------------------->
+<script type="text/ng-template" id="tooltips.html">
+<div class="topic">
+	<div class="section group">
+		<div class="col span_8_of_12">
+			<div class="example">
+				Hover on the icon at the end of this sentence. 
+				<span class="icon info compact">
+					<span wf-tooltip position="bottom">
+						The tooltip's position is based on the compact icon size, but you can use it with any element that can have direct children.
+					</span>
+				</span>
+				Or perhaps click on this instead: 
+				<button class="button compact">Mysterious Button
+					<span wf-tooltip trigger="click">If you use <em>trigger="click"</em>, clicking will open and hide the tooltip.</span>
+				</button>
+			</div>
+			
+			<div class="code">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">Hover on the icon at the end of this sentence. 
+<span style="color: #000080; font-weight: bold">&lt;span</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;icon info compact&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>
+	<span style="color: #000080; font-weight: bold">&lt;span</span> <span style="color: #FF0000">wf-tooltip</span> <span style="color: #FF0000">position=</span><span style="color: #0000FF">&quot;{{ guide.tooltips.position }}&quot;</span><span data-ng-show="guide.tooltips.clickTrigger"> <span style="color: #FF0000">trigger=</span><span style="color: #0000FF">&quot;click&quot;</span></span><span style="color: #000080; font-weight: bold">&gt;</span>
+		The tooltip&#39;s position is based on the compact icon size, but you can use it with any element that can have direct children.
+	<span style="color: #000080; font-weight: bold">&lt;/span&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/span&gt;</span>
+Or perhaps click on this instead: 
+<span style="color: #000080; font-weight: bold">&lt;button</span> <span style="color: #FF0000">class=</span><span style="color: #0000FF">&quot;button compact&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>Mysterious Button
+	<span style="color: #000080; font-weight: bold">&lt;span</span> <span style="color: #FF0000">wf-tooltip</span> <span style="color: #FF0000">trigger=</span><span style="color: #0000FF">&quot;click&quot;</span><span style="color: #000080; font-weight: bold">&gt;</span>If you use <span style="color: #000080; font-weight: bold">&lt;em&gt;</span>trigger=&quot;click&quot;<span style="color: #000080; font-weight: bold">&lt;/em&gt;</span>, clicking will open and hide the tooltip.<span style="color: #000080; font-weight: bold">&lt;/span&gt;</span>
+<span style="color: #000080; font-weight: bold">&lt;/button&gt;</span>
+</pre></div>
+			</div>
+		</div>
+	
+	    <div class="col span_4_of_12">
+			<div class="options">
+				<fieldset>
+					<legend>Options</legend>
+					<div class="instructions">These options won't update the behavior of the tooltips on this page - they run on page load and don't change.</div>
+					<ul class="radio-list">
+						<li>
+							<label>Position the first tooltip to the: 
+								<select data-ng-model="guide.tooltips.position">
+									<option value="right">Right (default)</option>
+									<option value="left">Left</option>
+									<option value="top">Top</option>
+									<option value="bottom">Bottom</option>
+								</select>
+							</label>
+						</li>
+					</ul>
+					<ul class="radio-list">
+						<li>
+							<label>
+								<input type="checkbox" data-ng-model="guide.tooltips.clickTrigger" /> Trigger the first tooltip with a click instead of hover
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+			<div class="usage">
+				<h4>Usage</h4>
+				<ul>
+					<li>Tooltips are typically a <code>SPAN</code> element directly inside the element you want users to hover or click.</li>
+					<li>If using the Angular directive, you can optionally set a <em>position</em> attribute.</li>
+					<li>If you leave out the <em>position</em> attribute, the tooltip appears to the right of its parent.</li>
+					<li>If you include <em>trigger="click"</em> in the directive's attributes, users must click to show or hide the tooltip.</li>
+				</ul>
+			</div>
+	    </div>
+	</div>
+</div>
+</script>
+
+
 <!-- USER MESSAGES ------------------------------------------------------------->
 <script type="text/ng-template" id="userMessages.html">
 <div class="topic">
