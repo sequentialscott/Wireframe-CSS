@@ -19,6 +19,19 @@ syntax and the general approach from John Papa: https://github.com/johnpapa/angu
 The `index.html` file is a style guide that both uses and documents wireframe.css. It is a simple Angular application, 
 and you can choose options for most of the styles and see code that you can copy and paste.
 
+###What if I don't know Angular JS?
+If you rename the `starter.html` file and leave all of the &lt;script&gt; tags in place at the top,  you can use
+any of the Angular widgets that appear in the style guide, even if you don't do any additional JavaScript.  Angular lets 
+you create new tags for HTML, as well as new attributes.  You'll see throughout the styleguide some extra attributes,
+usually starting with 'wf-' on some of the HTML elements.  (Take a look at the Loading Indicator, for example.)  You
+can use the Angular widgets by following the code snippets.
+
+###OK, but what if I do know Angular JS?
+Then you're in a position to make your mockup more interactive.  The `starterController.js` file defines the module and 
+the controller.  Normally, best practice is to separate your modules, directives, and controllers into different files;
+however, this is a tool for quick, throw-away prototypes.  It may work best to keep everything in one file - it really
+depends on how much you're planning to do.
+
 
 ##Updating the Style Guide
 The HTML for each topic appears below the main part of the index.html page in a series of `<script type="ng/template">` tags.  (These load 
